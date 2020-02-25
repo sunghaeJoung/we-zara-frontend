@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Slider.scss";
 import * as Rx from "rxjs-es";
-import FooterCompany from "../../Components/FooterCompany/FooterCompany";
 
 const data = [
   {
@@ -273,7 +272,6 @@ class Slider extends Component {
             <div className="text-container__btn">view</div>
           </div>
         </section>
-        <FooterCompany />
       </div>
     ));
 
