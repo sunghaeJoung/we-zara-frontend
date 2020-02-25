@@ -6,6 +6,7 @@
   display: flex;
   overflow: hidden;
   flex-direction: column;
+  font-family: "PT Sans Narrow";
 
   .smooth {
     position: relative;
@@ -85,7 +86,6 @@
   }
 
   &__btn {
-    font-family: "PT Sans Narrow";
     font-weight: bold;
     color: #fff;
 
