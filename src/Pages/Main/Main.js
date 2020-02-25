@@ -1,0 +1,36 @@
+import React, { Component } from "react";
+import "./Main.scss";
+import Header from "../../Components/Header/Header.js";
+import Nav from "../../Components/Nav/Nav.js";
+
+class Main extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      nav: "close"
+    };
+  }
+
+  handlerOver = () => {
+    this.setState({
+      nav: "open"
+    });
+  };
+
+  handlerOut = () => {
+    this.setState({
+      nav: "close"
+    });
+  };
+
+  render() {
+    return (
+      <div className="main">
+        <Header handlerOver={this.handlerOver} />
+        <Nav handlerOut={this.handlerOut} nav={this.state.nav} />
+      </div>
+    );
+  }
+}
+
+export default Main;
