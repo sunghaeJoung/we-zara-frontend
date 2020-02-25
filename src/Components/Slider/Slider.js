@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Slider.scss";
 import * as Rx from "rxjs-es";
+import FooterCompany from "../../Components/FooterCompany/FooterCompany";
 
 const data = [
   {
@@ -149,8 +150,6 @@ class Slider extends Component {
       "click"
     ).map(() => 1);
 
-    const downBtnClick$ = Rx.Observable.fromEvent(this.refs[""]).map(() => -1);
-
     // stream of mousewheel
     const buttonClicks$ = Rx.Observable.fromEvent()
       .merge(prevBtnClick$, nextBtnClick$)
@@ -192,13 +191,11 @@ class Slider extends Component {
     };
 
     const slides = data.map(item => (
-
       <div className="smooth">
         <section className="main__section" style={{ background: item.bg[1] }}>
           <div className="text-container">
             <div className="text-container__title">{item.text[1].title}</div>
             <div className="text-container__subtitle">
-
               {item.text[1].subtitle[1]}
               <br />
               {item.text[1].subtitle[2]}
@@ -207,7 +204,6 @@ class Slider extends Component {
             </div>
             <div className="text-container__btn">view</div>
           </div>
-
         </section>
         <section className="main__section" style={{ background: item.bg[2] }}>
           {this.state.sliderIndex === 1 && (
@@ -277,6 +273,7 @@ class Slider extends Component {
             <div className="text-container__btn">view</div>
           </div>
         </section>
+        <FooterCompany />
       </div>
     ));
 
@@ -291,6 +288,22 @@ class Slider extends Component {
         </button>
         <button className="slider__btn slider__btn--next" ref="next-slider">
           {next}
+        </button>
+
+        <button className="slider__btn slider__btn--down">
+          <p style={{ marginBottom: -5 }}>SCROLL</p>
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 129 129"
+            width="30"
+            height="30"
+            fill="#fff"
+          >
+            <g>
+              <path d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z"></path>
+            </g>
+          </svg>
         </button>
       </main>
     );

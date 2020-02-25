@@ -75,6 +75,14 @@
     justify-content: center;
     scroll-snap-align: center;
   }
+
+  .something {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 200px;
+    scroll-snap-align: center;
+  }
 }
 
 .slider {
@@ -88,7 +96,6 @@
   &__btn {
     font-weight: bold;
     color: #fff;
-
     position: fixed;
     top: 0;
     height: 100vh;
@@ -104,6 +111,11 @@
 
     &--next {
       right: 0;
+    }
+
+    &--down {
+      right: 46.5%;
+      top: 45%;
     }
   }
 }
