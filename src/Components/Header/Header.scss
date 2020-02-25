@@ -1,0 +1,65 @@
+.header {
+  width: 100%;
+  height: 104px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+
+  &-left {
+    display: flex;
+    align-items: center;
+    .menu-icon {
+      width: 32px;
+      height: 32px;
+      margin: 16px;
+    }
+
+    a {
+      .logo {
+        width: 172px;
+        height: auto;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .search {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &-txt {
+      width: 50px;
+      font-size: 22px;
+      font-weight: 500;
+    }
+    &-line {
+      width: 147px;
+      height: 1px;
+      background-color: black;
+      margin-top: 20px;
+    }
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    a {
+      font-size: 12px;
+      margin-right: 16px;
+      cursor: pointer;
+    }
+    .cart {
+      position: relative;
+      cursor: pointer;
+      img {
+        margin-right: 27px;
+      }
+      span {
+        position: absolute;
+        left: 12px;
+        top: 11px;
+      }
+    }
+  }
+}
