@@ -31,140 +31,26 @@ class Filter extends Component {
                 this.state.filter ? "view-hide" : "view-more"
               }`}
             >
-              XXS (KR 33)
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              XS (KR 44)
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              S (KR 55)
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              M (KR 66)
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              L (KR 77)
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              XL (KR 88)
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              XXL (KR 99)
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              XS-S
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              M-L
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              80
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              85
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              90
-            </div>
-            <div
-              className={`view ${
-                !this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              230
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              235
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              240
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              245
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              255
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              260
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              265
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              275
+              <div>XXS (KR 33)</div>
+              <div>XS (KR 44)</div>
+              <div>S (KR 55)</div>
+              <div>M (KR 66)</div>
+              <div>L (KR 77)</div>
+              <div>XL (KR 88)</div>
+              <div>XXL (KR 99)</div>
+              <div>XS-S</div>
+              <div>M-L</div>
+              <div>80</div>
+              <div>85</div>
+              <div>90</div>
+              <div>230</div>
+              <div>235</div>
+              <div>240</div>
+              <div>245</div>
+              <div>255</div>
+              <div>260</div>
+              <div>265</div>
+              <div>275</div>
             </div>
             {/* 필터 더보기 버튼 */}
             <div className="view-btn" onClick={this.handleFilter}>
@@ -194,14 +80,8 @@ class Filter extends Component {
                 this.state.filter ? "view-hide" : "view-more"
               }`}
             >
-              기타
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              노랑
+              <div>기타</div>
+              <div>노랑</div>
             </div>
             {/* 필터 더보기 버튼 */}
             <div className="view-btn" onClick={this.handleFilter}>
@@ -237,14 +117,8 @@ class Filter extends Component {
                 this.state.filter ? "view-hide" : "view-more"
               }`}
             >
-              드레스
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              바지
+              <div>드레스</div>
+              <div>바지</div>
             </div>
             {/* 필터 더보기 버튼 */}
             <div className="view-btn" onClick={this.handleFilter}>
@@ -274,14 +148,8 @@ class Filter extends Component {
                 this.state.filter ? "view-hide" : "view-more"
               }`}
             >
-              100,000원
-            </div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
-              130,000원
+              <div>100,000원</div>
+              <div>130,000원</div>
             </div>
             {/* 필터 더보기 버튼 */}
             <div className="view-btn" onClick={this.handleFilter}>

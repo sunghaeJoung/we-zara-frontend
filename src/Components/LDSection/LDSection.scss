@@ -1,6 +1,5 @@
 .list-detail-section {
   padding: 104px 16px 0 16px;
-  overflow: hidden;
 
   .LDSection {
     position: relative;
@@ -12,7 +11,7 @@
       font-size: 12px;
       z-index: 999;
 
-      .top-option__left {
+      &__left {
         span {
           margin-right: 16px;
         }
@@ -24,7 +23,7 @@
         }
       }
 
-      .top-option__right {
+      &__right {
         width: 290px;
         margin: 0 32px 0 10px;
         display: flex;

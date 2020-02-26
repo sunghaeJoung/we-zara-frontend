@@ -11,6 +11,7 @@ class Header extends Component {
   }
 
   render() {
+    console.log(this.props.handlerOver);
     return (
       <header>
         <div className="header">
