@@ -8,6 +8,7 @@ class Routes extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Main} />
+
         </Switch>
       </Router>
     );
