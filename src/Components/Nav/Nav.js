@@ -29,6 +29,7 @@ class Nav extends Component {
           this.props.nav === "open" ? "showNav" : "hideNav"
         }`}
         onMouseLeave={this.props.handlerOut}
+        style={{ zIndex: 100 }}
       >
         <nav>
           <ul className="list">

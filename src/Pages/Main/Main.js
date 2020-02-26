@@ -27,7 +27,7 @@ class Main extends Component {
   render() {
     return (
       <div className="main">
-        <Header handlerOver={this.handlerOver} />
+        <Header handlerOver={this.handlerOver}></Header>
         <Nav handlerOut={this.handlerOut} nav={this.state.nav} />
         <Slider />
       </div>
