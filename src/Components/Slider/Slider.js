@@ -133,7 +133,8 @@ class Slider extends Component {
     super(props);
 
     this.state = {
-      sliderIndex: START_INDEX
+      sliderIndex: START_INDEX,
+      vIndex: 0
     };
   }
 
@@ -149,9 +150,13 @@ class Slider extends Component {
       "click"
     ).map(() => 1);
 
+    const downBtnClick$ = Rx.Observable.fromEvent(
+      this.refs["down-slider"],
+      "click"
+    ).map(() => 1);
+
     // stream of mousewheel
-    const buttonClicks$ = Rx.Observable.fromEvent()
-      .merge(prevBtnClick$, nextBtnClick$)
+    const buttonClicks$ = Rx.Observable.merge(prevBtnClick$, nextBtnClick$)
       .throttleTime(TRANSITION_TIME)
       .startWith(START_INDEX)
       .scan((prev, current) => {
@@ -166,6 +171,23 @@ class Slider extends Component {
 
     // Subscribe to the stream and update react state
     buttonClicks$.subscribe(sliderIndex => this.setState({ sliderIndex }));
+
+    const downS$ = Rx.Observable.fromEvent()
+      .merge(downBtnClick$)
+      .throttleTime(TRANSITION_TIME)
+      .startWith(1)
+      .scan((prev, current) => {
+        let next = prev + current;
+        if (next >= 0 && next < 5) {
+          return next;
+        } else {
+          return prev;
+        }
+      }, 1)
+      .distinctUntilChanged();
+
+    // Subscribe to the stream and update react state
+    downS$.subscribe(vIndex => this.setState({ vIndex }));
   }
 
   render() {
@@ -188,9 +210,14 @@ class Slider extends Component {
       transitionDuration: TRANSITION_TIME + "ms",
       transform: `translateX(${transition}vw)`
     };
+    const styleY = {
+      height: data.length * 100 + "vh",
+      transitionDuration: TRANSITION_TIME + "ms",
+      transform: `translateY(${this.state.vIndex * -100}vh)`
+    };
 
     const slides = data.map(item => (
-      <div className="smooth">
+      <div style={styleY}>
         <section className="main__section" style={{ background: item.bg[1] }}>
           <div className="text-container">
             <div className="text-container__title">{item.text[1].title}</div>
@@ -288,7 +315,7 @@ class Slider extends Component {
           {next}
         </button>
 
-        <button className="slider__btn slider__btn--down">
+        <button className="slider__btn slider__btn--down" ref="down-slider">
           <p style={{ marginBottom: -5 }}>SCROLL</p>
           <svg
             version="1.1"
