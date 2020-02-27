@@ -5,11 +5,30 @@ import Nav from "../../Components/Nav/Nav.js";
 import LDSection from "../../Components/LDSection/LDSection.js";
 
 class ListDetail extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      nav: "close"
+    };
+  }
+
+  handlerOver = () => {
+    this.setState({
+      nav: "open"
+    });
+  };
+
+  handlerOut = () => {
+    this.setState({
+      nav: "close"
+    });
+  };
+
   render() {
     return (
       <div className="list-detail">
-        <Header />
-        <Nav />
+        <Header handlerOver={this.handlerOver} />
+        <Nav handlerOut={this.handlerOut} nav={this.state.nav} />
         <LDSection />
       </div>
     );
