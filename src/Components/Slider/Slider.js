@@ -125,38 +125,52 @@ const data = [
   }
 ];
 
-const START_INDEX = 1;
-const TRANSITION_TIME = 500;
+const transitionTime = 1500;
 
 class Slider extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      sliderIndex: START_INDEX
+      horizontalIndex: 0,
+      verticalIndex: 0
     };
   }
 
   componentDidMount() {
-    // create stream of click events and map it to -1 that means go to prev slide
     const prevBtnClick$ = Rx.Observable.fromEvent(
       this.refs["prev-slider"],
       "click"
     ).map(() => -1);
-    // create stream of click events and map to 1 that means go to next slide
     const nextBtnClick$ = Rx.Observable.fromEvent(
       this.refs["next-slider"],
       "click"
     ).map(() => 1);
+    const downBtnClick$ = Rx.Observable.fromEvent(
+      this.refs["down-slider"],
+      "click"
+    ).map(() => 1);
 
-    // stream of mousewheel
-    const buttonClicks$ = Rx.Observable.fromEvent()
-      .merge(prevBtnClick$, nextBtnClick$)
-      .throttleTime(TRANSITION_TIME)
-      .startWith(START_INDEX)
+    const mouseWheelChange$ = Rx.Observable.fromEvent(window, "wheel")
+      .map(event => (event.deltaY < 0 ? -1 : 1))
+      .merge(downBtnClick$)
+      .throttleTime(transitionTime)
       .scan((prev, current) => {
         let next = prev + current;
-        if (next >= 0 && next < data.length) {
+        if (next >= 0 && next < 5) {
+          return next;
+        } else {
+          return prev;
+        }
+      }, 0)
+      .distinctUntilChanged();
+
+    const horizontal$ = Rx.Observable.fromEvent()
+      .merge(prevBtnClick$, nextBtnClick$)
+      .throttleTime(transitionTime)
+      .scan((prev, current) => {
+        let next = prev + current;
+        if (next >= 0 && next < 3) {
           return next;
         } else {
           return prev;
@@ -165,143 +179,67 @@ class Slider extends Component {
       .distinctUntilChanged();
 
     // Subscribe to the stream and update react state
-    buttonClicks$.subscribe(sliderIndex => this.setState({ sliderIndex }));
+    mouseWheelChange$.subscribe(verticalIndex =>
+      this.setState({ verticalIndex })
+    );
+
+    horizontal$.subscribe(horizontalIndex =>
+      this.setState({ horizontalIndex })
+    );
   }
 
   render() {
-    let prev;
-    let next;
-    if (this.state.sliderIndex === 0) {
-      prev = "";
-      next = "WOMAN >";
-    } else if (this.state.sliderIndex === 1) {
-      prev = "MAN <";
-      next = "> KID ";
-    } else {
-      prev = "WOMAN <";
-      next = "";
+    let down = (
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 129 129"
+        width="30"
+        height="30"
+        fill="#fff"
+      >
+        <g>
+          <path d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z"></path>
+        </g>
+      </svg>
+    );
+
+    if (this.state.verticalIndex === 4) {
+      down = "";
     }
 
-    const transition = this.state.sliderIndex * -100;
-    const style = {
-      width: data.length * 100 + "vw",
-      transitionDuration: TRANSITION_TIME + "ms",
-      transform: `translateX(${transition}vw)`
+    const transitionY = this.state.verticalIndex * -100;
+    const transitionX = this.state.horizontalIndex * -100;
+
+    const styleX = {
+      width: 3 * 100 + "vw",
+      height: 5 * 100 + "vh",
+      transition: "all ease",
+      transitionDuration: transitionTime + "ms",
+      transform: `translateX(${transitionX}vw) translateY(${transitionY}vh)`
     };
 
-    const slides = data.map(item => (
-      <div className="smooth">
-        <section className="main__section" style={{ background: item.bg[1] }}>
-          <div className="text-container">
-            <div className="text-container__title">{item.text[1].title}</div>
-            <div className="text-container__subtitle">
-              {item.text[1].subtitle[1]}
-              <br />
-              {item.text[1].subtitle[2]}
-              <br />
-              {item.text[1].subtitle[3]}
-            </div>
-            <div className="text-container__btn">view</div>
-          </div>
-        </section>
-        <section className="main__section" style={{ background: item.bg[2] }}>
-          {this.state.sliderIndex === 1 && (
-            <video loop playsInline autoPlay muted className="video">
-              <source
-                src="https://static.zara.net/video///mkt/2020/2/ss20-north-leather-woman-basic/video/w/2560//portrait/video_0.mp4?ts=1582547763449"
-                type="video/mp4"
-              />
-            </video>
-          )}
-          <div className="text-container">
-            <div className="text-container__title">{item.text[2].title}</div>
-            <div className="text-container__subtitle">
-              {item.text[2].subtitle[1]}
-              <br />
-              {item.text[2].subtitle[2]}
-              <br />
-              {item.text[2].subtitle[3]}
-            </div>
-            <div className="text-container__btn">view</div>
-          </div>
-        </section>
-        <section className="main__section" style={{ background: item.bg[3] }}>
-          <div className="text-container">
-            <div className="text-container__title">{item.text[3].title}</div>
-            <div className="text-container__subtitle">
-              {item.text[3].subtitle[1]}
-              <br />
-              {item.text[3].subtitle[2]}
-              <br />
-              {item.text[3].subtitle[3]}
-            </div>
-            <div className="text-container__btn">view</div>
-          </div>
-        </section>
-        <section className="main__section" style={{ background: item.bg[4] }}>
-          <div className="text-container">
-            <div className="text-container__title">{item.text[4].title}</div>
-            <div className="text-container__subtitle">
-              {item.text[4].subtitle[1]}
-              <br />
-              {item.text[4].subtitle[2]}
-              <br />
-              {item.text[4].subtitle[3]}
-            </div>
-            <div className="text-container__btn">view</div>
-          </div>
-        </section>
-        <section className="main__section" style={{ background: item.bg[5] }}>
-          <div className="text-container">
-            {this.state.sliderIndex === 1 && (
-              <video loop playsInline autoPlay muted className="video">
-                <source
-                  src="https://static.zara.net/video///mkt/2020/2/ss20-north-joinlife-woman/video/w/2560//landscape/video_0.mp4?ts=1582195014625"
-                  type="video/mp4"
-                />
-              </video>
-            )}
-            <div className="text-container__title">Join Life</div>
-            <div className="text-container__subtitle">
-              We work hard to ensure our products become more and more
-              sustainable.
-              <br />
-              Search for new processes and raw materials that help us make our
-              products more responsibly
-            </div>
-            <div className="text-container__btn">view</div>
-          </div>
-        </section>
-      </div>
+    const contentM = this.props.data.map(data => (
+      <div style={{ background: data.bgM, height: "100vh", width: "100vw" }} />
     ));
 
+    // const contentW = this.props.data.map(data => (
+    //   <div style={{ background: data.bgW, height: "100vh", width: "100vw" }} />
+    // ));
+
     return (
-      <main className="main">
-        <div className="slider__wrapper" style={style}>
-          {slides}
-        </div>
+      <main>
+        <div style={styleX}>{contentM}</div>
 
         <button className="slider__btn slider__btn--prev" ref="prev-slider">
-          {prev}
+          prev
         </button>
         <button className="slider__btn slider__btn--next" ref="next-slider">
-          {next}
+          next
         </button>
 
-        <button className="slider__btn slider__btn--down">
-          <p style={{ marginBottom: -5 }}>SCROLL</p>
-          <svg
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 129 129"
-            width="30"
-            height="30"
-            fill="#fff"
-          >
-            <g>
-              <path d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z"></path>
-            </g>
-          </svg>
+        <button className="slider__btn slider__btn--down" ref="down-slider">
+          {down}
         </button>
       </main>
     );

@@ -8,9 +8,20 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nav: "close"
+      nav: "close",
+      data: []
     };
   }
+
+  componentDidMount = () => {
+    fetch("http://localhost:3000/data/data.json")
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          data: res.data
+        });
+      });
+  };
 
   handlerOver = () => {
     this.setState({
@@ -29,7 +40,7 @@ class Main extends Component {
       <div className="main">
         <Header handlerOver={this.handlerOver}></Header>
         <Nav handlerOut={this.handlerOut} nav={this.state.nav} />
-        <Slider />
+        <Slider data={this.state.data} />
       </div>
     );
   }
