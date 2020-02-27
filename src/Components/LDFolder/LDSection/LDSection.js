@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./LDSection.scss";
-import Filter from "../Filter/Filter.js";
+import Filter from "../../Filter/Filter.js";
 import LDProduct from "../LDProduct/LDProduct.js";
 
 class LDSection extends Component {
