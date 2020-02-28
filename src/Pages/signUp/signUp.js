@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './signUp.scss'
+import './SignUp.scss'
 
-class signUp extends Component {
+class SignUp extends Component {
   render() {
     return (
       <div>
@@ -11,4 +11,4 @@ class signUp extends Component {
   }
 }
 
-export default signUp;
+export default SignUp;
