@@ -80,9 +80,7 @@
 .slider {
   &__wrapper {
     transition: all linear;
-    will-change: transform;
     height: 100vh;
-    display: flex;
   }
 
   &__btn {

@@ -1,53 +1,13 @@
 import React, { Component } from "react";
 import "./Slider.scss";
+import Section from "./Section/Section";
 import * as Rx from "rxjs-es";
 
 const data = [
+  {},
   {
     bg: {
-      1: "url(https://static.zara.net/photos//mkt/spots/ss20-north-new-in-man/subhome-xmedia-08//landscape_0.jpg) center/cover",
-      2: "url(https://static.zara.net/photos//mkt/spots/ss20-chillida-collection-man/subhome-xmedia-08//landscape_0.jpg) center/cover",
-      3: "url(https://static.zara.net/photos//mkt/spots/ss20-north-collection-man/subhome-xmedia-08//landscape_0.jpg) center/cover",
-      4: "url(https://static.zara.net/photos//mkt/spots/ss20-north-shoes-and-bags-man/subhome-xmedia-06//landscape_0.jpg) center/cover",
-      5: "url(https://static.zara.net/photos//mkt/spots/ss20-north-joinlife-man/subhome-xmedia-08//landscape_0.jpg) center/cover"
-    },
-    text: {
-      1: {
-        title: "new in",
-        subtitle: {
-          1: "Explore week's latest menswear pieces of the",
-          2: "season curated for you.",
-          3: "Spring Summer Man Collection"
-        }
-      },
-      2: {
-        title: "knitwear",
-        subtitle: {
-          1: "Spring pieces designed with style and function in mind"
-        }
-      },
-      3: {
-        title: "collection",
-        subtitle: {
-          1: "Discover this season’s new collection built around",
-          2: "staple pieces and trend-focused items.",
-          3: "Men’s Spring Summer Collection"
-        }
-      },
-      4: {
-        title: "show & bags",
-        subtitle: {
-          1: "Explore the new collection of Shoes & Bags",
-          2: "Spring Summer Man Collection"
-        }
-      }
-    }
-  },
-  {
-    bg: {
-      1: "url(https://static.zara.net/photos//mkt/spots/ss20-north-join-life-woman/subhome-xmedia//landscape_0.jpg?ts=1582547884469) center/cover",
-      3: "url(https://static.zara.net/photos//mkt/spots/ss20-north-leather-woman-basic/subhome-xmedia-collection//landscape_0.jpg) center/cover",
-      4: "url(https://static.zara.net/photos//mkt/spots/ss20-north-shoes-and-bags-woman/subhome-xmedia//landscape_0.jpg) center/cover"
+      4: ""
     },
     text: {
       1: {
@@ -126,7 +86,7 @@ const data = [
 ];
 
 const START_INDEX = 1;
-const TRANSITION_TIME = 500;
+const TRANSITION_TIME = 1500;
 
 class Slider extends Component {
   constructor(props) {
@@ -157,6 +117,7 @@ class Slider extends Component {
 
     // stream of mousewheel
     const buttonClicks$ = Rx.Observable.merge(prevBtnClick$, nextBtnClick$)
+
       .throttleTime(TRANSITION_TIME)
       .startWith(START_INDEX)
       .scan((prev, current) => {
@@ -172,7 +133,8 @@ class Slider extends Component {
     // Subscribe to the stream and update react state
     buttonClicks$.subscribe(sliderIndex => this.setState({ sliderIndex }));
 
-    const downS$ = Rx.Observable.fromEvent()
+    const downS$ = Rx.Observable.fromEvent(window, "wheel")
+      .map(event => (event.deltaY < 0 ? -1 : 1))
       .merge(downBtnClick$)
       .throttleTime(TRANSITION_TIME)
       .startWith(1)
@@ -211,94 +173,20 @@ class Slider extends Component {
       transform: `translateX(${transition}vw)`
     };
     const styleY = {
+      transition: "all ease",
       height: data.length * 100 + "vh",
       transitionDuration: TRANSITION_TIME + "ms",
       transform: `translateY(${this.state.vIndex * -100}vh)`
     };
 
-    const slides = data.map(item => (
+    const slides = this.props.sliderData.map(data => (
       <div style={styleY}>
-        <section className="main__section" style={{ background: item.bg[1] }}>
-          <div className="text-container">
-            <div className="text-container__title">{item.text[1].title}</div>
-            <div className="text-container__subtitle">
-              {item.text[1].subtitle[1]}
-              <br />
-              {item.text[1].subtitle[2]}
-              <br />
-              {item.text[1].subtitle[3]}
-            </div>
-            <div className="text-container__btn">view</div>
-          </div>
-        </section>
-        <section className="main__section" style={{ background: item.bg[2] }}>
-          {this.state.sliderIndex === 1 && (
-            <video loop playsInline autoPlay muted className="video">
-              <source
-                src="https://static.zara.net/video///mkt/2020/2/ss20-north-leather-woman-basic/video/w/2560//portrait/video_0.mp4?ts=1582547763449"
-                type="video/mp4"
-              />
-            </video>
-          )}
-          <div className="text-container">
-            <div className="text-container__title">{item.text[2].title}</div>
-            <div className="text-container__subtitle">
-              {item.text[2].subtitle[1]}
-              <br />
-              {item.text[2].subtitle[2]}
-              <br />
-              {item.text[2].subtitle[3]}
-            </div>
-            <div className="text-container__btn">view</div>
-          </div>
-        </section>
-        <section className="main__section" style={{ background: item.bg[3] }}>
-          <div className="text-container">
-            <div className="text-container__title">{item.text[3].title}</div>
-            <div className="text-container__subtitle">
-              {item.text[3].subtitle[1]}
-              <br />
-              {item.text[3].subtitle[2]}
-              <br />
-              {item.text[3].subtitle[3]}
-            </div>
-            <div className="text-container__btn">view</div>
-          </div>
-        </section>
-        <section className="main__section" style={{ background: item.bg[4] }}>
-          <div className="text-container">
-            <div className="text-container__title">{item.text[4].title}</div>
-            <div className="text-container__subtitle">
-              {item.text[4].subtitle[1]}
-              <br />
-              {item.text[4].subtitle[2]}
-              <br />
-              {item.text[4].subtitle[3]}
-            </div>
-            <div className="text-container__btn">view</div>
-          </div>
-        </section>
-        <section className="main__section" style={{ background: item.bg[5] }}>
-          <div className="text-container">
-            {this.state.sliderIndex === 1 && (
-              <video loop playsInline autoPlay muted className="video">
-                <source
-                  src="https://static.zara.net/video///mkt/2020/2/ss20-north-joinlife-woman/video/w/2560//landscape/video_0.mp4?ts=1582195014625"
-                  type="video/mp4"
-                />
-              </video>
-            )}
-            <div className="text-container__title">Join Life</div>
-            <div className="text-container__subtitle">
-              We work hard to ensure our products become more and more
-              sustainable.
-              <br />
-              Search for new processes and raw materials that help us make our
-              products more responsibly
-            </div>
-            <div className="text-container__btn">view</div>
-          </div>
-        </section>
+        <Section
+        // title=""
+        // subtitle1=""
+        // subtitle2=""
+        // subtitle3=""
+        />
       </div>
     ));
 

@@ -8,8 +8,19 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nav: "close"
+      nav: "close",
+      sliderData: []
     };
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:3000/data/sliderData.json")
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          data: res.data
+        });
+      });
   }
 
   handlerOver = () => {

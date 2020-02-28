@@ -1,0 +1,54 @@
+{
+  "data": [
+    {
+      "bg": {
+        "1": "url(https://static.zara.net/photos//mkt/spots/ss20-north-new-in-man/subhome-xmedia-08//landscape_0.jpg) center/cover",
+        "2": "url(https://static.zara.net/photos//mkt/spots/ss20-chillida-collection-man/subhome-xmedia-08//landscape_0.jpg) center/cover",
+        "3": "url(https://static.zara.net/photos//mkt/spots/ss20-north-collection-man/subhome-xmedia-08//landscape_0.jpg) center/cover",
+        "4": "url(https://static.zara.net/photos//mkt/spots/ss20-north-shoes-and-bags-man/subhome-xmedia-06//landscape_0.jpg) center/cover",
+        "5": "url(https://static.zara.net/photos//mkt/spots/ss20-north-joinlife-man/subhome-xmedia-08//landscape_0.jpg) center/cover"
+      },
+      "text": {
+        "1": {
+          "title": "new in",
+          "subtitle": {
+            "1": "Explore week's latest menswear pieces of the",
+            "2": "season curated for you.",
+            "3": "Spring Summer Man Collection"
+          }
+        },
+        "2": {
+          "title": "knitwear",
+          "subtitle": {
+            "1": "Spring pieces designed with style and function in mind"
+          }
+        },
+        "3": {
+          "title": "collection",
+          "subtitle": {
+            "1": "Discover this season’s new collection built around",
+            "2": "staple pieces and trend-focused items.",
+            "3": "Men’s Spring Summer Collection"
+          }
+        },
+        "4": {
+          "title": "show & bags",
+          "subtitle": {
+            "1": "Explore the new collection of Shoes & Bags",
+            "2": "Spring Summer Man Collection"
+          }
+        }
+      }
+    },
+    {
+      "bg": {
+        "1": "url(https://static.zara.net/photos//mkt/spots/ss20-north-join-life-woman/subhome-xmedia//landscape_0.jpg) center/cover",
+        "2": "url(https://static.zara.net/photos//mkt/spots/ss20-north-leather-woman-basic/subhome-xmedia-collection//landscape_0.jpg) center/cover",
+        "3": "url(https://static.zara.net/photos//mkt/spots/ss20-north-shoes-and-bags-woman/subhome-xmedia//landscape_0.jpg) center/cover",
+        "4": "url(https://static.zara.net/photos//mkt/spots/ss20-north-shoes-and-bags-man/subhome-xmedia-06//landscape_0.jpg) center/cover",
+        "5": "url(https://static.zara.net/photos//mkt/spots/ss20-north-joinlife-man/subhome-xmedia-08//landscape_0.jpg) center/cover"
+      }
+    },
+    {}
+  ]
+}
