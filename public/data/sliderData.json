@@ -9,7 +9,26 @@
         "url(https://static.zara.net/photos//mkt/spots/ss20-north-joinlife-man/subhome-xmedia-08//landscape_0.jpg) center/cover"
       ],
       "text": {
-        "title": ["New in", "Something"]
+        "title": ["New in", "Knitwear", "Collection", "Show & Bags"],
+        "subtitle1": [
+          "Explore week's latest menswear pieces of the",
+          "Spring pieces designed with style and function in mind",
+          "Discover this season’s new collection built around",
+          "Explore the new collection of Shoes & Bags"
+        ],
+        "subtitle2": [
+          "season curated for you.",
+          "staple pieces and trend-focused items.",
+          "staple pieces and trend-focused items.",
+          "season curated for you.",
+          "Spring Summer Man Collection"
+        ],
+        "subtitle3": [
+          "Spring Summer Man Collection",
+          "Men’s Spring Summer Collection",
+          "Spring Summer Man Collection",
+          "Men’s Spring Summer Collection"
+        ]
       }
     },
     {
@@ -17,11 +36,30 @@
         "url(https://static.zara.net/photos//mkt/spots/ss20-north-join-life-woman/subhome-xmedia//landscape_0.jpg) center/cover",
         "url(https://static.zara.net/photos//mkt/spots/ss20-north-leather-woman-basic/subhome-xmedia-collection//landscape_0.jpg) center/cover",
         "url(https://static.zara.net/photos//mkt/spots/ss20-north-shoes-and-bags-woman/subhome-xmedia//landscape_0.jpg) center/cover",
-        "https://static.zara.net/photos//mkt/spots/ss20-north-simply-natural-trf/subhome-xmedia//landscape_0.jpg center/cover",
-        "https://static.zara.net/photos//mkt/spots/ss20-north-collection-woman/subhome-xmedia-09//landscape_0.jpg center/cover"
+        "url(https://static.zara.net/photos//mkt/spots/ss20-north-simply-natural-trf/subhome-xmedia//landscape_0.jpg) center/cover",
+        "url(https://static.zara.net/photos//mkt/spots/ss20-north-collection-woman/subhome-xmedia-09//landscape_0.jpg) center/cover"
       ],
       "text": {
-        "title": ["Something", "Hey"]
+        "title": ["Join Life ss20", "New in", "Collection", "Show & Bags"],
+        "subtitle1": [
+          "Working towards sustainability",
+          "",
+          "Discover this week the latest pieces from our latest collection",
+          "Explore the new collection of Shoes & Bags",
+          "Discover this week the latest pieces from our latest collection"
+        ],
+        "subtitle2": [
+          "Spring Summer 2020 Woman",
+          "Spring Summer 2020 Woman",
+          "Summer 2020 Woman",
+          "Spring Summer 2020 Woman"
+        ],
+        "subtitle3": [
+          "Selected pieces with new pictures curated for you.",
+          "Selected pieces with new pictures curated for you",
+          "Selected pieces with new pictures curated for you",
+          "Selected pieces with new pictures curated for you"
+        ]
       }
     },
     {
@@ -33,7 +71,25 @@
         "url(https://static.zara.net/photos//mkt/spots/ss20-north-joinlife-kids/subhome-xmedia-08//landscape_0.jpg) center/cover"
       ],
       "text": {
-        "title": ["Hi", "uoeabguub"]
+        "title": ["New In Girl", "Finding Neon", "Collection", "Shoes & Bags"],
+        "subtitle1": [
+          "Discover our new denim collection.",
+          "Discover our new season’s trend for kids.",
+          "Discover this week the latest pieces from our latest collection",
+          "Explore the new collection of Shoes & Bags"
+        ],
+        "subtitle2": [
+          "Welcome Spring with the latest black",
+          "Welcome Spring with natural colors embraced",
+          "Spring Summer 2020 Kids",
+          "Spring Summer 2020 Kids"
+        ],
+        "subtitle3": [
+          "and white denim trends.",
+          "by bright neons.",
+          "Selected pieces with new pictures curated for you",
+          "Selected pieces with new pictures curated for you"
+        ]
       }
     }
   ]

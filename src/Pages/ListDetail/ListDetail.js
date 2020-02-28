@@ -1,28 +1,16 @@
 import React, { Component } from "react";
-import "./Main.scss";
+import "./ListDetail.scss";
 import Header from "../../Components/Header/Header.js";
 import Nav from "../../Components/Nav/Nav.js";
-import Slider from "../../Components/Slider/Slider";
+import LDSection from "../../Components/LDFolder/LDSection/LDSection.js";
 
-class Main extends Component {
+class ListDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nav: "close",
-      sliderData: []
+      nav: "close"
     };
   }
-
-  componentDidMount = () => {
-    fetch("http://localhost:3000/data/sliderData.json")
-      .then(res => res.json())
-      .then(res => {
-        console.log(10);
-        this.setState({
-          sliderData: res.data
-        });
-      });
-  };
 
   handlerOver = () => {
     this.setState({
@@ -38,13 +26,13 @@ class Main extends Component {
 
   render() {
     return (
-      <div className="main">
+      <div className="list-detail">
         <Header handlerOver={this.handlerOver} />
         <Nav handlerOut={this.handlerOut} nav={this.state.nav} />
-        <Slider data={this.state.sliderData} />
+        <LDSection />
       </div>
     );
   }
 }
 
-export default Main;
+export default ListDetail;
