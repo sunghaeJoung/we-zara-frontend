@@ -1,0 +1,42 @@
+.list-detail-marketing {
+  padding-top: 50px;
+
+  .list-detail-marketing-ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    .marketing {
+      .image {
+        img {
+          width: calc(100% - 16px);
+        }
+      }
+    }
+
+    .category-description-top {
+      width: 100%;
+      margin: 104px 0;
+      text-align: center;
+
+      .category-header {
+        font-size: 40px;
+        font-weight: 700;
+        margin: 0 auto 24px;
+      }
+
+      .category-description {
+        font-size: 14px;
+        line-height: 16px;
+        width: 60%;
+        display: inline-block;
+      }
+    }
+
+    .marketing-banner {
+      margin-bottom: 122px;
+      img {
+        width: calc(100% - 16px);
+      }
+    }
+  }
+}

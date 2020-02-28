@@ -1,0 +1,30 @@
+.footer {
+  margin-left: 32px;
+  margin-right: 32px;
+  padding-bottom: 30px;
+
+  .list-hole {
+    width: 62.5vw;
+    margin: 50px auto;
+
+    .list-head {
+      font-size: 18px;
+      letter-spacing: 0.3px;
+      font-stretch: condensed;
+      font-weight: 700;
+      line-height: 20px;
+      display: table-cell;
+      padding: 0 16px;
+      width: 25%;
+
+      li {
+        font-size: 14px;
+        margin-top: 16px;
+      }
+      li:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+}
