@@ -13,15 +13,16 @@ class Main extends Component {
     };
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     fetch("http://localhost:3000/data/sliderData.json")
       .then(res => res.json())
       .then(res => {
+        console.log(10);
         this.setState({
-          data: res.data
+          sliderData: res.data
         });
       });
-  }
+  };
 
   handlerOver = () => {
     this.setState({
@@ -40,7 +41,7 @@ class Main extends Component {
       <div className="main">
         <Header handlerOver={this.handlerOver}></Header>
         <Nav handlerOut={this.handlerOut} nav={this.state.nav} />
-        <Slider />
+        <Slider data={this.state.sliderData} />
       </div>
     );
   }

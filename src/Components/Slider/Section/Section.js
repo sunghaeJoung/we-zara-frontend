@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Section extends Component {
   render() {
     return (
-      <section>
+      <section className="main__section" style={this.props.style}>
         <div className="text-container">
           <h1 className="text-container__title">{this.props.title}</h1>
           <div className="text-container__subtitle">
