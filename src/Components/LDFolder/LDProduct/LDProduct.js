@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./LDProduct.scss";
 import LDPMarketing from "../LDPMarketing/LDPMarketing.js";
 import LDPList from "../LDPList/LDPList.js";
-import LDPList2 from "../LDPList/LDPList2.js";
+import LDPListTwo from "../LDPList/LDPListTwo.js";
 
 class LDProduct extends Component {
   constructor(props) {
@@ -17,7 +17,6 @@ class LDProduct extends Component {
     fetch("http://localhost:3000/data/data.json")
       .then(res => res.json())
       .then(res => {
-        console.log(res.product_list);
         this.setState({ marketing: res.marketing, product: res.product_list });
       });
   };
@@ -40,7 +39,7 @@ class LDProduct extends Component {
         );
       } else {
         return (
-          <LDPList2
+          <LDPListTwo
             id={list.id}
             img={list.img}
             new={list.new}
@@ -56,7 +55,10 @@ class LDProduct extends Component {
         <ul className="list-detail-marketing-ul">
           <li className="marketing">
             <div className="image">
-              <img src="https://static.zara.net/photos///2020/V/M/1/p/0000/002/599/2/w/3530/0000002599_9_1_1.jpg?ts=1582715273494"></img>
+              <img
+                alt="marketing_banner"
+                src="https://static.zara.net/photos///2020/V/M/1/p/0000/002/599/2/w/3530/0000002599_9_1_1.jpg?ts=1582715273494"
+              ></img>
             </div>
           </li>
           <li className="category-description-top">
@@ -69,13 +71,19 @@ class LDProduct extends Component {
             </div>
           </li>
           <li className="marketing-banner">
-            <img src="https://static.zara.net/photos///2020/V/M/1/p/0000/002/724/2/w/3530/0000002724_9_1_1.jpg?ts=1582744512763"></img>
+            <img
+              alt="marketing_banner"
+              src="https://static.zara.net/photos///2020/V/M/1/p/0000/002/724/2/w/3530/0000002724_9_1_1.jpg?ts=1582744512763"
+            ></img>
           </li>
 
           {marketingList}
 
           <li className="marketing-banner">
-            <img src="https://static.zara.net/photos///2020/V/M/1/p/0000/002/724/2/w/3530/0000002724_9_1_1.jpg?ts=1582744512763"></img>
+            <img
+              alt="marketing_banner"
+              src="https://static.zara.net/photos///2020/V/M/1/p/0000/002/724/2/w/3530/0000002724_9_1_1.jpg?ts=1582744512763"
+            ></img>
           </li>
 
           {productList}
