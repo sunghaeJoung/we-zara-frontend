@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./Main.scss";
 import Header from "../../Components/Header/Header.js";
 import Nav from "../../Components/Nav/Nav.js";
-import Slider from "../../Components/Slider/Slider";
 
 class Main extends Component {
   constructor(props) {
@@ -40,7 +39,6 @@ class Main extends Component {
       <div className="main">
         <Header handlerOver={this.handlerOver}></Header>
         <Nav handlerOut={this.handlerOut} nav={this.state.nav} />
-        <Slider data={this.state.data} />
       </div>
     );
   }
