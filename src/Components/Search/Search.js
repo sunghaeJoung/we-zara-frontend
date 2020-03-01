@@ -1,27 +1,26 @@
-import React, { Component } from "react";
-import "./Search.scss";
-import Header from "../../Components/Header/Header.js";
-import Nav from "../../Components/Nav/Nav.js";
-import { IoMdClose } from "react-icons/io";
-import close from "../../Images/close.svg";
+import React, { Component } from 'react';
+import './Search.scss';
+import Header from '../../Components/Header/Header.js';
+import Nav from '../../Components/Nav/Nav.js';
+import close from '../../Images/close.svg';
 
 class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
       background: true,
-      nav: "close",
-      keyword: "",
-      search_data: []
+      nav: 'close',
+      keyword: '',
+      search_data: [],
     };
   }
 
   componentDidMount = () => {
-    fetch("http://localhost:3000/data/data.json")
+    fetch('http://localhost:3000/data/data.json')
       .then(res => res.json())
       .then(res => {
         this.setState({
-          search_data: res.search
+          search_data: res.search,
         });
       });
   };
@@ -29,7 +28,7 @@ class Search extends Component {
   //input.value받는 onChange 함수
   searchKeyword = e => {
     this.setState({
-      keyword: e.target.value
+      keyword: e.target.value,
     });
   };
 
@@ -55,19 +54,19 @@ class Search extends Component {
   // 네비게이션바 컨트롤
   handlerOver = () => {
     this.setState({
-      nav: "open"
+      nav: 'open',
     });
   };
 
   handlerOut = () => {
     this.setState({
-      nav: "close"
+      nav: 'close',
     });
   };
 
   // X 이미지 클릭하면 메인 이동
   goToMain = () => {
-    this.props.history.push("/");
+    this.props.history.push('/');
   };
 
   render() {
@@ -97,7 +96,7 @@ class Search extends Component {
           {/* 검색결과 */}
           <div
             className="search-result"
-            style={{ display: this.state.keyword ? "block" : "none" }}
+            style={{ display: this.state.keyword ? 'block' : 'none' }}
           >
             {/* 검색결과 구현 */}
             <li>
@@ -127,7 +126,7 @@ class Search extends Component {
         {/* 검색페이지 네비게이션바 */}
         <nav
           className="search-nav"
-          style={{ display: this.state.keyword ? "block" : "none" }}
+          style={{ display: this.state.keyword ? 'block' : 'none' }}
         >
           <ul>
             <li className="search-nav-list">
