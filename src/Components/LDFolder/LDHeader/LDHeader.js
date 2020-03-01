@@ -10,6 +10,11 @@ class LDHeader extends Component {
     this.state = {};
   }
 
+  //헤더검색창 클릭하면 검색페이지 이동
+  goToSearch = e => {
+    this.props.history.push("/search");
+  };
+
   render() {
     return (
       <header>
@@ -32,7 +37,7 @@ class LDHeader extends Component {
               <img className="logo" src={logo} alt=""></img>
             </a>
           </div>
-          <a href="검색" className="search">
+          <a href="/search" className="search">
             <div className="search-txt">검색</div>
             <div className="search-line"></div>
           </a>

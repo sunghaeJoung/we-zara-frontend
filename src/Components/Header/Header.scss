@@ -9,7 +9,6 @@
   color: black;
   position: fixed;
   z-index: 10;
-  background: transparent;
 
   &-left {
     display: flex;
@@ -51,6 +50,10 @@
       background-color: black;
       margin-top: 20px;
     }
+
+    .hide-search {
+      display: none;
+    }
   }
 
   .header-right {
@@ -82,4 +85,8 @@
       }
     }
   }
+}
+
+.fill_BG {
+  background-color: white;
 }
