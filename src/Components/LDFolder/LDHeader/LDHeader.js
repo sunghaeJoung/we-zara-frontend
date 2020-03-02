@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import "./LDHeader.scss";
-import menuIcon from "../../../Images/Black/menu-icon.svg";
-import logo from "../../../Images/Black/logo.svg";
-import cart from "../../../Images/Black/cart.svg";
+import React, { Component } from 'react';
+import './LDHeader.scss';
+import menuIcon from '../../../Images/Black/menu-icon.svg';
+import logo from '../../../Images/Black/logo.svg';
+import cart from '../../../Images/Black/cart.svg';
 
 class LDHeader extends Component {
   constructor(props) {
@@ -12,14 +12,14 @@ class LDHeader extends Component {
 
   //헤더검색창 클릭하면 검색페이지 이동
   goToSearch = e => {
-    this.props.history.push("/search");
+    this.props.history.push('/search');
   };
 
   render() {
     return (
       <header>
         <div
-          className={`header ${this.props.header_BG ? "empty_BG" : "fill_BG"}`}
+          className={`header ${this.props.header_BG ? 'empty_BG' : 'fill_BG'}`}
           onMouseEnter={this.props.headerBGFill}
           onMouseLeave={this.props.headerBGEmpty}
         >
@@ -31,7 +31,7 @@ class LDHeader extends Component {
               onMouseEnter={this.props.handlerOver}
             ></img>
             <a
-              href="자라"
+              href="./"
               title="Zara South Korea / 대한민국, 자라 홈페이지로 이동"
             >
               <img className="logo" src={logo} alt=""></img>
@@ -53,7 +53,7 @@ class LDHeader extends Component {
           {/* 헤더 필터 */}
           <div
             className={`top-option ${
-              this.props.mode ? "top-option-hide" : "top-option-show"
+              this.props.mode ? 'top-option-hide' : 'top-option-show'
             }`}
           >
             <div className="top-option__left">
@@ -66,14 +66,14 @@ class LDHeader extends Component {
               <div className="filter-btn" onClick={this.props.handlerFilter}>
                 <span
                   className={
-                    this.props.mode ? "filter-btn-show" : "filter-btn-hide"
+                    this.props.mode ? 'filter-btn-show' : 'filter-btn-hide'
                   }
                 >
                   + FILTERS
                 </span>
                 <span
                   className={
-                    this.props.mode ? "filter-btn-hide" : "filter-btn-show"
+                    this.props.mode ? 'filter-btn-hide' : 'filter-btn-show'
                   }
                 >
                   - FILTERS

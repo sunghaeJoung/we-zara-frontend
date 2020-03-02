@@ -33,9 +33,11 @@ class Search extends Component {
   };
 
   //검색결과 구현 함수
-  searchResult = (data, key) => {
+  searchResult = () => {
     // console.log("배열", data, "검색내용", key);
-    let searchResult = data.filter(card => card.includes(key));
+    let searchResult = this.state.search_data.filter(card =>
+      card.includes(this.state.keyword),
+    );
     if (searchResult.length > 0) {
       return searchResult.map((keyword, i) => {
         return (
@@ -46,7 +48,9 @@ class Search extends Component {
       });
     } else {
       return (
-        <div className="no-result">"{key}"에 대한 검색 결과가 없습니다.</div>
+        <div className="no-result">
+          "{this.state.keyword}"에 대한 검색 결과가 없습니다.
+        </div>
       );
     }
   };
@@ -99,9 +103,7 @@ class Search extends Component {
             style={{ display: this.state.keyword ? 'block' : 'none' }}
           >
             {/* 검색결과 구현 */}
-            <li>
-              {this.searchResult(this.state.search_data, this.state.keyword)}
-            </li>
+            <li>{this.searchResult()}</li>
 
             <section>
               <ul>
