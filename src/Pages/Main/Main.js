@@ -1,8 +1,15 @@
+<<<<<<< HEAD
+import React, { Component } from "react";
+import "./Main.scss";
+import Header from "../../Components/Header/Header.js";
+import Nav from "../../Components/Nav/Nav.js";
+=======
 import React, { Component } from 'react';
 import './Main.scss';
 import Header from '../../Components/Header/Header.js';
 import Nav from '../../Components/Nav/Nav.js';
 import Slider from '../../Components/Slider/Slider';
+>>>>>>> de54ec8fb528d1285371f0bd09ef9ffcdc68ec5a
 
 class Main extends Component {
   constructor(props) {
@@ -41,7 +48,10 @@ class Main extends Component {
       <div className="main">
         <Header handlerOver={this.handlerOver} />
         <Nav handlerOut={this.handlerOut} nav={this.state.nav} />
+<<<<<<< HEAD
+=======
         <Slider data={this.state.sliderData} />
+>>>>>>> de54ec8fb528d1285371f0bd09ef9ffcdc68ec5a
       </div>
     );
   }
