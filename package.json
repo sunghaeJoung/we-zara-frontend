@@ -17,9 +17,7 @@
     "redux-actions": "^2.6.5",
     "redux-devtools-extension": "^2.13.8",
     "styled-components": "^5.0.1",
-    "react-slick": "^0.25.2",
-    "rxjs-es": "^5.0.0-beta.12",
-    "slick-carousel": "^1.8.1"
+    "rxjs-es": "^5.0.0-beta.12"
   },
   "scripts": {
     "start": "react-scripts start",
