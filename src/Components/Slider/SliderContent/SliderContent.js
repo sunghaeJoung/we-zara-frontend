@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import './SliderContent.scss';
 
-class Section extends Component {
+class SliderContent extends Component {
   render() {
     return (
       <section className="main__section" style={this.props.style}>
@@ -18,4 +19,4 @@ class Section extends Component {
   }
 }
 
-export default Section;
+export default SliderContent;

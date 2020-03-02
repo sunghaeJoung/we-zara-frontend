@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import "./Slider.scss";
-import Section from "./Section/Section";
-import * as Rx from "rxjs-es";
+import React, { Component } from 'react';
+import './Slider.scss';
+import SliderContent from './SliderContent/SliderContent';
+import * as Rx from 'rxjs-es';
 
 class Slider extends Component {
   constructor(props) {
@@ -9,24 +9,24 @@ class Slider extends Component {
 
     this.state = {
       hIndex: 1,
-      vIndex: 0
+      vIndex: 0,
     };
   }
 
   componentDidMount() {
     const prevBtnClick$ = Rx.Observable.fromEvent(
-      this.refs["prev-slider"],
-      "click"
+      this.refs['prev-slider'],
+      'click',
     ).map(() => -1);
 
     const nextBtnClick$ = Rx.Observable.fromEvent(
-      this.refs["next-slider"],
-      "click"
+      this.refs['next-slider'],
+      'click',
     ).map(() => 1);
 
     const downBtnClick$ = Rx.Observable.fromEvent(
-      this.refs["down-slider"],
-      "click"
+      this.refs['down-slider'],
+      'click',
     ).map(() => 1);
 
     const horizontal$ = Rx.Observable.merge(prevBtnClick$, nextBtnClick$)
@@ -44,7 +44,7 @@ class Slider extends Component {
 
     horizontal$.subscribe(hIndex => this.setState({ hIndex }));
 
-    const vertical$ = Rx.Observable.fromEvent(window, "wheel")
+    const vertical$ = Rx.Observable.fromEvent(window, 'wheel')
       .map(event => (event.deltaY < 0 ? -1 : 1))
       .merge(downBtnClick$)
       .throttleTime(1400)
@@ -85,69 +85,44 @@ class Slider extends Component {
     }
 
     if (this.state.hIndex === 0) {
-      prev = "";
-      next = "WOMAN >";
+      prev = '';
+      next = 'WOMAN >';
     } else if (this.state.hIndex === 1) {
-      prev = "MAN <";
-      next = "> KID ";
+      prev = 'MAN <';
+      next = '> KID ';
     } else {
-      prev = "WOMAN <";
-      next = "";
+      prev = 'WOMAN <';
+      next = '';
     }
 
     const transitionX = this.state.hIndex * -100;
     const transitionY = this.state.vIndex * -100;
 
     const styleX = {
-      transition: "all ease-out",
-      width: "300vw",
-      transitionDuration: "500ms",
-      transform: `translateX(${transitionX}vw)`
+      transition: 'all ease-out',
+      width: '300vw',
+      transitionDuration: '500ms',
+      transform: `translateX(${transitionX}vw)`,
     };
 
     const styleY = {
-      transition: "all ease",
-      height: "500vh",
-      transitionDuration: "1400ms",
-      transform: `translateY(${transitionY}vh)`
+      transition: 'all ease',
+      height: '500vh',
+      transitionDuration: '1400ms',
+      transform: `translateY(${transitionY}vh)`,
     };
 
     const slides = this.props.data.map(obj => (
       <div style={styleY} className="slider__item">
-        <Section
-          title={obj.text.title[0]}
-          subtitle1={obj.text.subtitle1[0]}
-          subtitle2={obj.text.subtitle2[0]}
-          subtitle3={obj.text.subtitle3[0]}
-          style={{ background: obj.bg[0] }}
-        />
-        <Section
-          title={obj.text.title[1]}
-          subtitle1={obj.text.subtitle1[1]}
-          subtitle2={obj.text.subtitle2[1]}
-          subtitle3={obj.text.subtitle3[1]}
-          style={{ background: obj.bg[1] }}
-        />
-        <Section
-          style={{ background: obj.bg[2] }}
-          subtitle1={obj.text.subtitle1[2]}
-          subtitle2={obj.text.subtitle2[2]}
-          subtitle3={obj.text.subtitle3[2]}
-          title={obj.text.title[2]}
-        />
-        <Section
-          style={{ background: obj.bg[3] }}
-          subtitle1={obj.text.subtitle1[3]}
-          subtitle2={obj.text.subtitle2[3]}
-          subtitle3={obj.text.subtitle3[3]}
-          title={obj.text.title[3]}
-        />
-        <Section
-          style={{ background: obj.bg[4] }}
-          title="Join Life"
-          subtitle1="We work hard to ensure our products become more and more sustainable."
-          subtitle2="Searching for new processes and raw materials that helps us make our products more responsible"
-        />
+        {obj.bg.map((bg, i) => (
+          <SliderContent
+            title={obj.text.title[i]}
+            subtitle1={obj.text.subtitle1[i]}
+            subtitle2={obj.text.subtitle2[i]}
+            subtitle3={obj.text.subtitle3[i]}
+            style={{ background: obj.bg[i] }}
+          />
+        ))}
       </div>
     ));
 

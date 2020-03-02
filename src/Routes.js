@@ -1,9 +1,9 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import SignUp from "./Pages/SignUp/SignUp";
-import Login from "./Pages/Login/Login";
-import Main from "./Pages/Main/Main.js";
-import ListDetail from "./Pages/ListDetail/ListDetail.js";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import SignUp from './Pages/SignUp/SignUp';
+import Login from './Pages/Login/Login';
+import Main from './Pages/Main/Main.js';
+import ListDetail from './Pages/ListDetail/ListDetail.js';
 
 class Routes extends React.Component {
   render() {
