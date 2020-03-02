@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-import './SignUp.scss'
+import './SignUp.scss';
 
 class SignUp extends Component {
   render() {
-    return (
-      <div>
-        wfwfwfwefewf
-      </div>
-    )
+    return <div>wfwfwfwefewf</div>;
   }
 }
 

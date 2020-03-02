@@ -1,0 +1,40 @@
+.main__section {
+  cursor: pointer;
+  display: flex;
+  min-width: 100vw;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-color: #fff;
+
+  &:last-child {
+    color: #000;
+    border-color: #000;
+  }
+
+  .text-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+      text-transform: uppercase;
+      font-size: 5.5vw;
+      font-weight: bold;
+    }
+
+    &__subtitle {
+      font-size: 0.8vw;
+    }
+
+    &__btn {
+      text-transform: uppercase;
+      margin-top: 20px;
+      font-size: 1.1vw;
+      padding: 7px 40px;
+      border: 2px solid;
+    }
+  }
+}
