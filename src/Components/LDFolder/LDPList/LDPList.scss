@@ -51,15 +51,16 @@
           font-weight: 700;
         }
 
-        &-name {
-          font-size: 14px;
-          margin-top: 3px;
-        }
-
+        &-name,
         &-price {
           font-size: 14px;
           margin-top: 3px;
         }
+
+        // &-price {
+        //   font-size: 14px;
+        //   margin-top: 3px;
+        // }
       }
     }
   }
