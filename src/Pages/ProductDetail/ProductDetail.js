@@ -99,6 +99,7 @@ class ProductDetail extends Component {
                       })
                     }
                   >
+                    <span style={{ color: "red" }}>현재 이것만 됨... </span>
                     혼용물 및 세탁 방법
                   </p>
                   <Modal

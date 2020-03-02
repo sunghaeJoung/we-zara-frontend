@@ -1,0 +1,47 @@
+.filter {
+  width: 352px;
+  height: 924px;
+  background-color: white;
+  padding: 25px 24px 24px 48px;
+  margin-top: 25px;
+  position: fixed;
+  top: 100px;
+  right: -656px;
+  overflow: scroll;
+
+  .filter-hole {
+    .filter-head {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      letter-spacing: 0.2px;
+
+      div {
+        font-size: 12px;
+        font-weight: 400;
+        margin-top: 16px;
+        cursor: pointer;
+      }
+
+      // 필터에서 view more 버튼 누르면 목록 + / - 되는 스타일
+      .view-hide {
+        display: none;
+      }
+
+      .view-more {
+        display: block;
+      }
+    }
+  }
+}
+
+// 필터 btn 누르면 필터 나왔다가 사라지는 스타일
+.show-filter {
+  transform: translateX(-656px);
+  transition: transform 0.3s ease-in-out;
+}
+
+.hide-filter {
+  transform: translateX(-328px);
+  transition: transform 0.3s ease-in-out;
+}
