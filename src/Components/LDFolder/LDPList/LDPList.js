@@ -3,13 +3,12 @@ import "./LDPList.scss";
 
 class LDPList extends Component {
   render() {
-    console.log("제품 props 한개", this.props);
     return (
       <div className="list-detail-product">
         <ul className="list-detail-product-ul">
           <li className="product-single" key={this.props.id}>
             <div className="product-image">
-              <img src={this.props.img}></img>
+              <img alt="상품이미지" src={this.props.img}></img>
             </div>
             <div className="product-single-info">
               <div className="product-single-info-new">{this.props.new}</div>
