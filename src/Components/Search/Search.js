@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './Search.scss';
 import Header from '../../Components/Header/Header.js';
 import Nav from '../../Components/Nav/Nav.js';
+// import SearchResult from './SearchResult.js';
 import close from '../../Images/close.svg';
+import SearchResult from './SearchResult';
 
 class Search extends Component {
   constructor(props) {
@@ -12,6 +14,8 @@ class Search extends Component {
       nav: 'close',
       keyword: '',
       search_data: [],
+      product_data: [],
+      product_mode: true,
     };
   }
 
@@ -21,6 +25,7 @@ class Search extends Component {
       .then(res => {
         this.setState({
           search_data: res.search,
+          product_data: res.product_list,
         });
       });
   };
@@ -34,15 +39,19 @@ class Search extends Component {
 
   //검색결과 구현 함수
   searchResult = () => {
-    // console.log("배열", data, "검색내용", key);
     let searchResult = this.state.search_data.filter(card =>
       card.includes(this.state.keyword),
     );
     if (searchResult.length > 0) {
+      // this.setState({
+      //   product_mode: true,
+      // });
       return searchResult.map((keyword, i) => {
         return (
-          <li className="list" key={i}>
-            {keyword}
+          <li>
+            <li className="list" key={i}>
+              {keyword}
+            </li>
           </li>
         );
       });
@@ -74,6 +83,19 @@ class Search extends Component {
   };
 
   render() {
+    //검색결과에 따른 제품정보
+    const searchProduct = this.state.product_data.map(card => {
+      return (
+        <SearchResult
+          id={card.id}
+          img={card.img}
+          new={card.new}
+          name={card.name}
+          price={card.price}
+        />
+      );
+    });
+
     return (
       <div className="search-page">
         <Header
@@ -87,9 +109,8 @@ class Search extends Component {
           <div className="search">
             <div className="search-input">
               <input type="text" onChange={this.searchKeyword}></input>
-              {/* <IoMdClose className="delete-img" /> */}
               <img
-                alt="메인으로 돌아가기"
+                alt="자라홈"
                 src={close}
                 className="search-close-img"
                 onClick={this.goToMain}
@@ -103,24 +124,10 @@ class Search extends Component {
             style={{ display: this.state.keyword ? 'block' : 'none' }}
           >
             {/* 검색결과 구현 */}
-            <li>{this.searchResult()}</li>
-
+            {this.searchResult()}
             <section>
-              <ul>
-                <li className="product">
-                  <div className="image">
-                    <img
-                      alt="셔츠이미지"
-                      src="https://static.zara.net/photos///2020/V/0/1/p/2336/404/044/2/w/744/2336404044_2_3_1.jpg?ts=1582106916161"
-                    ></img>
-                  </div>
-                  <div className="info">
-                    <div className="new">NEW</div>
-                    <div className="name">언밸런스 포폴린 셔츠</div>
-                    <div className="price">59,000 원</div>
-                  </div>
-                </li>
-              </ul>
+              {/* 검색결과에 따른 제품리스트 */}
+              {this.state.product_mode && <ul>{searchProduct}</ul>}
             </section>
           </div>
         </section>
