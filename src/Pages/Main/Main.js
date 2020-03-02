@@ -7,20 +7,9 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nav: "close",
-      data: []
+      nav: "close"
     };
   }
-
-  componentDidMount = () => {
-    fetch("http://localhost:3000/data/data.json")
-      .then(res => res.json())
-      .then(res => {
-        this.setState({
-          data: res.data
-        });
-      });
-  };
 
   handlerOver = () => {
     this.setState({
