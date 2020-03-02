@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import "./Header.scss";
-import menuIcon from "../../Images/Black/menu-icon.svg";
-import logo from "../../Images/Black/logo.svg";
-import cart from "../../Images/Black/cart.svg";
+import React, { Component } from 'react';
+import './Header.scss';
+import menuIcon from '../../Images/Black/menu-icon.svg';
+import logo from '../../Images/Black/logo.svg';
+import cart from '../../Images/Black/cart.svg';
 
 class Header extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <div className="header">
+        <div className={`header ${this.props.background ? 'fill_BG' : ''}`}>
           <div className="header-left">
             <img
               className="menu-icon"
@@ -22,15 +22,25 @@ class Header extends Component {
               onMouseEnter={this.props.handlerOver}
             ></img>
             <a
-              href="자라"
+              href="./"
               title="Zara South Korea / 대한민국, 자라 홈페이지로 이동"
             >
-              <img className="logo" src={logo} alt=""></img>
+              <img className="logo" src={logo} alt="자라"></img>
             </a>
           </div>
-          <a href="검색" className="search">
-            <div className="search-txt">검색</div>
-            <div className="search-line"></div>
+          <a href="/search" className="search">
+            <div
+              className={`search-txt ${
+                this.props.background ? 'hide-search' : ''
+              }`}
+            >
+              검색
+            </div>
+            <div
+              className={`search-line ${
+                this.props.background ? 'hide-search' : ''
+              }`}
+            ></div>
           </a>
           <div className="header-right">
             <a href="로그인">로그인</a>

@@ -1,0 +1,31 @@
+.product {
+  margin-bottom: 6px;
+  margin-right: 32px;
+  width: calc((100% - 128px) / 4);
+
+  img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+  }
+
+  .info {
+    margin: 20px 0 30px;
+
+    .new {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .name,
+    .price {
+      font-size: 14px;
+      padding-top: 4px;
+    }
+
+    .name:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}

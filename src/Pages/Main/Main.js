@@ -12,6 +12,7 @@ class Main extends Component {
     };
   }
 
+  //네비게이션바 컨트롤
   handlerOver = () => {
     this.setState({
       nav: "open"
