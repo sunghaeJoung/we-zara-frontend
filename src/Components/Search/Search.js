@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import './Search.scss';
 import Header from '../../Components/Header/Header.js';
 import Nav from '../../Components/Nav/Nav.js';
-// import SearchResult from './SearchResult.js';
+import SearchResult from './SearchResult.js';
 import close from '../../Images/close.svg';
-import SearchResult from './SearchResult';
 
 class Search extends Component {
   constructor(props) {
@@ -15,7 +14,6 @@ class Search extends Component {
       keyword: '',
       search_data: [],
       product_data: [],
-      product_mode: true,
     };
   }
 
@@ -37,33 +35,6 @@ class Search extends Component {
     });
   };
 
-  //검색결과 구현 함수
-  searchResult = () => {
-    let searchResult = this.state.search_data.filter(card =>
-      card.includes(this.state.keyword),
-    );
-    if (searchResult.length > 0) {
-      // this.setState({
-      //   product_mode: true,
-      // });
-      return searchResult.map((keyword, i) => {
-        return (
-          <li>
-            <li className="list" key={i}>
-              {keyword}
-            </li>
-          </li>
-        );
-      });
-    } else {
-      return (
-        <div className="no-result">
-          "{this.state.keyword}"에 대한 검색 결과가 없습니다.
-        </div>
-      );
-    }
-  };
-
   // 네비게이션바 컨트롤
   handlerOver = () => {
     this.setState({
@@ -83,19 +54,6 @@ class Search extends Component {
   };
 
   render() {
-    //검색결과에 따른 제품정보
-    const searchProduct = this.state.product_data.map(card => {
-      return (
-        <SearchResult
-          id={card.id}
-          img={card.img}
-          new={card.new}
-          name={card.name}
-          price={card.price}
-        />
-      );
-    });
-
     return (
       <div className="search-page">
         <Header
@@ -118,18 +76,12 @@ class Search extends Component {
             </div>
           </div>
 
-          {/* 검색결과 */}
-          <div
-            className="search-result"
-            style={{ display: this.state.keyword ? 'block' : 'none' }}
-          >
-            {/* 검색결과 구현 */}
-            {this.searchResult()}
-            <section>
-              {/* 검색결과에 따른 제품리스트 */}
-              {this.state.product_mode && <ul>{searchProduct}</ul>}
-            </section>
-          </div>
+          {/* 검색 결과 컴포넌트 */}
+          <SearchResult
+            keyword={this.state.keyword}
+            search_data={this.state.search_data}
+            product_data={this.state.product_data}
+          />
         </section>
 
         {/* 검색페이지 네비게이션바 */}
