@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Search.scss';
 import Header from '../../Components/Header/Header.js';
 import Nav from '../../Components/Nav/Nav.js';
-import SearchResult from './SearchResult.js';
+import SearchResult from './SearchResult/SearchResult.js';
 import close from '../../Images/close.svg';
 
 class Search extends Component {
@@ -13,7 +13,7 @@ class Search extends Component {
       nav: 'close',
       keyword: '',
       search_data: [],
-      product_data: [],
+      search_bar: true,
     };
   }
 
@@ -54,13 +54,23 @@ class Search extends Component {
   };
 
   render() {
+    const {
+      background,
+      search_bar,
+      keyword,
+      search_data,
+      product_data,
+      nav,
+    } = this.state;
+
     return (
       <div className="search-page">
         <Header
           handlerOver={this.handlerOver}
-          background={this.state.background}
+          background={background}
+          search_bar={search_bar}
         />
-        <Nav handlerOut={this.handlerOut} nav={this.state.nav} />
+        <Nav handlerOut={this.handlerOut} nav={nav} />
 
         <section>
           {/* 검색창 */}
@@ -78,16 +88,16 @@ class Search extends Component {
 
           {/* 검색 결과 컴포넌트 */}
           <SearchResult
-            keyword={this.state.keyword}
-            search_data={this.state.search_data}
-            product_data={this.state.product_data}
+            keyword={keyword}
+            search_data={search_data}
+            product_data={product_data}
           />
         </section>
 
         {/* 검색페이지 네비게이션바 */}
         <nav
           className="search-nav"
-          style={{ display: this.state.keyword ? 'block' : 'none' }}
+          style={{ display: keyword ? 'block' : 'none' }}
         >
           <ul>
             <li className="search-nav-list">
