@@ -14,7 +14,7 @@ class Main extends Component {
   }
 
   componentDidMount = () => {
-    fetch('http://localhost:3001/data/data2.json')
+    fetch('http://localhost:3000/data/data2.json')
       .then(res => res.json())
       .then(res => {
         this.setState({
