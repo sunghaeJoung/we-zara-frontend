@@ -40,16 +40,10 @@ class Search extends Component {
     }
   };
 
-  // 네비게이션바 컨트롤
-  handlerOver = () => {
+  // nav bar 컨트롤
+  handlerNav = str => {
     this.setState({
-      nav: 'open',
-    });
-  };
-
-  handlerOut = () => {
-    this.setState({
-      nav: 'close',
+      nav: str,
     });
   };
 
@@ -64,11 +58,11 @@ class Search extends Component {
     return (
       <div className="search-page">
         <Header
-          handlerOver={this.handlerOver}
+          handlerOver={() => this.handlerNav('open')}
           background={background}
           search_bar={search_bar}
         />
-        <Nav handlerOut={this.handlerOut} nav={nav} />
+        <Nav handlerOut={() => this.handlerNav('close')} nav={nav} />
 
         <section>
           {/* 검색창 */}

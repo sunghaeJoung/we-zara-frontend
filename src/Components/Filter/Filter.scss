@@ -35,6 +35,10 @@
   }
 }
 
+.filter::-webkit-scrollbar {
+  display: none !important;
+}
+
 // 필터 btn 누르면 필터 나왔다가 사라지는 스타일
 .show-filter {
   transform: translateX(-656px);

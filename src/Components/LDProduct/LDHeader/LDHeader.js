@@ -5,30 +5,21 @@ import logo from '../../../Images/Black/logo.svg';
 import cart from '../../../Images/Black/cart.svg';
 
 class LDHeader extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  //헤더검색창 클릭하면 검색페이지 이동
-  goToSearch = e => {
-    this.props.history.push('/search');
-  };
-
   render() {
+    const { header_BG, headerBGFill, headerBGEmpty, handlerOver } = this.props;
     return (
       <header>
         <div
-          className={`header ${this.props.header_BG ? 'empty_BG' : 'fill_BG'}`}
-          onMouseEnter={this.props.headerBGFill}
-          onMouseLeave={this.props.headerBGEmpty}
+          className={`header ${header_BG ? 'empty_BG' : 'fill_BG'}`}
+          onMouseEnter={headerBGFill}
+          onMouseLeave={headerBGEmpty}
         >
           <div className="header-left">
             <img
               className="menu-icon"
               src={menuIcon}
               alt=""
-              onMouseEnter={this.props.handlerOver}
+              onMouseEnter={handlerOver}
             ></img>
             <a
               href="./"

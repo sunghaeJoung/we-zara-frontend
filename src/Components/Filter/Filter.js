@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import FilterShow from './FilterShow.js';
 import './Filter.scss';
 
 class Filter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filter: true,
+      option: true,
     };
   }
 
@@ -15,115 +16,57 @@ class Filter extends Component {
     });
   };
 
+  FilterList = (obj, min, max) => {
+    const { filter } = this.props;
+    if (filter.length != 0) {
+      let arr = filter[obj];
+      let result = [];
+
+      for (let i = min; i < max; i++) {
+        let id = arr[i].id;
+        let name = arr[i].name;
+        result.push(<div key={id}>{name}</div>);
+      }
+      return result;
+    }
+  };
+
   render() {
+    const { option } = this.state;
+    const { mode } = this.props;
     return (
-      <div
-        className={`filter ${this.props.mode ? 'hide-filter' : 'show-filter'}`}
-      >
+      <div className={`filter ${mode ? 'hide-filter' : 'show-filter'}`}>
         <ul className="filter-hole">
           <li className="filter-head">
             사이즈
-            <div>EU 32 (KR 23)</div>
-            <div>EU 34 (KR 24)</div>
-            <div>EU 44 (KR 29)</div>
-            <div className={this.state.filter ? 'view-hide' : 'view-more'}>
-              <div>XXS (KR 33)</div>
-              <div>XS (KR 44)</div>
-              <div>S (KR 55)</div>
-              <div>M (KR 66)</div>
-              <div>L (KR 77)</div>
-              <div>XL (KR 88)</div>
-              <div>XXL (KR 99)</div>
-              <div>XS-S</div>
-              <div>M-L</div>
-              <div>80</div>
-              <div>85</div>
-              <div>90</div>
-              <div>230</div>
-              <div>235</div>
-              <div>240</div>
-              <div>245</div>
-              <div>255</div>
-              <div>260</div>
-              <div>265</div>
-              <div>275</div>
+            {this.FilterList('sizes', 0, 3)}
+            <div className={option ? 'view-hide' : 'view-more'}>
+              {this.FilterList('sizes', 3, 8)}
             </div>
             {/* 필터 더보기 버튼 */}
-            <div className="view-btn" onClick={this.handlerFilter}>
-              <div className={this.state.filter ? 'view-more' : 'view-hide'}>
-                + VIEW MORE
-              </div>
-              <div className={this.state.filter ? 'view-hide' : 'view-more'}>
-                - VIEW LESS
-              </div>
-            </div>
+            <FilterShow option={option} />
           </li>
+
+          {/* ------------------------- */}
+
           <li className="filter-head">
             색상
-            <div>갈색</div>
-            <div>검정</div>
-            <div>금속</div>
-            <div className={this.state.filter ? 'view-hide' : 'view-more'}>
-              <div>기타</div>
-              <div>노랑</div>
+            {this.FilterList('colors', 0, 3)}
+            <div className={option ? 'view-hide' : 'view-more'}>
+              {this.FilterList('colors', 3, 12)}
             </div>
-            {/* 필터 더보기 버튼 */}
-            <div className="view-btn" onClick={this.handleFilter}>
-              <div className={this.state.filter ? 'view-more' : 'view-hide'}>
-                + VIEW MORE
-              </div>
-              <div className={this.state.filter ? 'view-hide' : 'view-more'}>
-                - VIEW LESS
-              </div>
-            </div>
+            <FilterShow option={option} />
           </li>
-          <li className="filter-head">
-            컬렉션
-            <div>BASIC</div>
-            <div>TRF</div>
-            <div>WOMAN</div>
-          </li>
-          <li className="filter-head">
-            아이템
-            <div>가방</div>
-            <div>구두</div>
-            <div>니트</div>
-            <div className={this.state.filter ? 'view-hide' : 'view-more'}>
-              <div>드레스</div>
-              <div>바지</div>
-            </div>
-            {/* 필터 더보기 버튼 */}
-            <div className="view-btn" onClick={this.handleFilter}>
-              <div className={this.state.filter ? 'view-more' : 'view-hide'}>
-                + VIEW MORE
-              </div>
-              <div className={this.state.filter ? 'view-hide' : 'view-more'}>
-                - VIEW LESS
-              </div>
-            </div>
-          </li>
+
+          {/* ------------------------- */}
+
           <li className="filter-head">
             가격
-            <div>10,000원</div>
-            <div>40,000원</div>
-            <div>70,000원</div>
-            <div className={this.state.filter ? 'view-hide' : 'view-more'}>
-              <div>100,000원</div>
-              <div>130,000원</div>
+            {this.FilterList('prices', 0, 3)}
+            <div className={option ? 'view-hide' : 'view-more'}>
+              {this.FilterList('prices', 3, 5)}
             </div>
-            {/* 필터 더보기 버튼 */}
-            <div className="view-btn" onClick={this.handleFilter}>
-              <div className={this.state.filter ? 'view-more' : 'view-hide'}>
-                + VIEW MORE
-              </div>
-              <div
-                className={`view ${
-                  this.state.filter ? 'view-hide' : 'view-more'
-                }`}
-              >
-                - VIEW LESS
-              </div>
-            </div>
+            <FilterShow option={option} />
           </li>
         </ul>
       </div>

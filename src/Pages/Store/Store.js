@@ -67,15 +67,9 @@ class Store extends Component {
   };
 
   // 네이게이션바 컨트롤
-  handlerOver = () => {
+  handlerNav = str => {
     this.setState({
-      nav: 'open',
-    });
-  };
-
-  handlerOut = () => {
-    this.setState({
-      nav: 'close',
+      nav: str,
     });
   };
 
@@ -88,8 +82,11 @@ class Store extends Component {
 
     return (
       <div className="store-page">
-        <Header handlerOver={this.handlerOver} background={background} />
-        <Nav handlerOut={this.handlerOut} nav={nav} />
+        <Header
+          handlerOver={() => this.handlerNav('open')}
+          background={background}
+        />
+        <Nav handlerOut={() => this.handlerNav('close')} nav={nav} />
         <section className="store">
           <div className="store-search">
             <div className="top-text">매장 검색</div>

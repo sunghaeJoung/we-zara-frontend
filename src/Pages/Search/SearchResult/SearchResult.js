@@ -11,13 +11,11 @@ class SearchResult extends Component {
 
   //결과리스트 구현 함수
   searchResult = list => {
-    if (list != 0) {
-      return list.map(keyword => {
+    if (list.length != 0) {
+      return list.map((keyword, idx) => {
         return (
-          <li>
-            <li className="list" key={keyword}>
-              {keyword}
-            </li>
+          <li key={idx} className="list">
+            {keyword}
           </li>
         );
       });
