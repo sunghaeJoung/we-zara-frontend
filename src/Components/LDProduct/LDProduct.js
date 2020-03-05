@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './LDProduct.scss';
-import LDPMarketing from '../LDPMarketing/LDPMarketing.js';
-import LDPList from '../LDPList/LDPList.js';
-import LDPListTwo from '../LDPList/LDPListTwo.js';
+import Marketing from './Marketing/Marketing.js';
+import List from './List/List.js';
+import ListTwo from './List/ListTwo.js';
 
 class LDProduct extends Component {
   constructor(props) {
@@ -26,34 +26,7 @@ class LDProduct extends Component {
   };
 
   render() {
-    const marketingList = this.state.marketing.map(card => {
-      return <LDPMarketing img={card} />;
-    });
-
-    const productList = this.state.product.map(list => {
-      if (list.id % 3 === 1) {
-        return (
-          <LDPList
-            id={list.id}
-            img={list.image}
-            new="new"
-            name={list.name}
-            price={list.price}
-          />
-        );
-      } else {
-        return (
-          <LDPListTwo
-            id={list.id}
-            img={list.image}
-            new="new"
-            name={list.name}
-            price={list.price}
-          />
-        );
-      }
-    });
-
+    const { marketing, product } = this.state;
     return (
       <div className="list-detail-marketing">
         <ul className="list-detail-marketing-ul">
@@ -81,7 +54,9 @@ class LDProduct extends Component {
             ></img>
           </li>
 
-          {marketingList}
+          {marketing.map(card => {
+            return <Marketing img={card} />;
+          })}
 
           <li className="marketing-banner">
             <img
@@ -90,7 +65,27 @@ class LDProduct extends Component {
             ></img>
           </li>
 
-          {productList}
+          {product.map(list => {
+            if (list.id % 3 === 1) {
+              return (
+                <List
+                  id={list.id}
+                  img={list.image}
+                  name={list.name}
+                  price={list.price}
+                />
+              );
+            } else {
+              return (
+                <ListTwo
+                  id={list.id}
+                  img={list.image}
+                  name={list.name}
+                  price={list.price}
+                />
+              );
+            }
+          })}
         </ul>
       </div>
     );

@@ -1,35 +1,30 @@
-import React, { Component } from "react";
-import "./ProductDetail.scss";
-import Modal from "../../Components/Modal/Modal";
-import Header from "../../Components/Header/Header";
-import Nav from "../../Components/Nav/Nav";
+import React, { Component } from 'react';
+import './ProductDetail.scss';
+import Modal from '../../Components/Modal/Modal';
+import Header from '../../Components/Header/Header';
+import Nav from '../../Components/Nav/Nav';
 
 class ProductDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nav: "close",
-      isModal: false
+      nav: 'close',
+      isModal: false,
     };
   }
 
-  handlerOver = () => {
+  // nav bar 컨트롤
+  handlerNav = str => {
     this.setState({
-      nav: "open"
-    });
-  };
-
-  handlerOut = () => {
-    this.setState({
-      nav: "close"
+      nav: str,
     });
   };
 
   render() {
     return (
       <>
-        {/* <Header handlerOver={this.handlerOver} />
-        <Nav handlerOut={this.handlerOut} nav={this.state.nav} /> */}
+        <Header handlerOver={() => this.handlerNav('open')} />
+        <Nav handlerOut={() => this.handlerNav('close')} nav={this.state.nav} />
         <div className="product-wrapper">
           <div className="product-detail">
             <div className="product-detail__image-container">
@@ -71,13 +66,13 @@ class ProductDetail extends Component {
                 <p
                   style={{
                     background:
-                      "url(https://static.zara.net/stdstatic/1.144.0-b.7/icons/new-arrow-down.svg) no-repeat 0",
+                      'url(https://static.zara.net/stdstatic/1.144.0-b.7/icons/new-arrow-down.svg) no-repeat 0',
                     backgroundSize: 8,
                     marginTop: 10,
                     marginBottom: 8,
                     fontSize: 14,
                     paddingLeft: 12,
-                    cursor: "pointer"
+                    cursor: 'pointer',
                   }}
                 >
                   더 보기
@@ -95,42 +90,42 @@ class ProductDetail extends Component {
                     className="info-p"
                     onClick={() =>
                       this.setState({
-                        isModal: true
+                        isModal: true,
                       })
                     }
                   >
-                    <span style={{ color: "red" }}>현재 이것만 됨... </span>
+                    <span style={{ color: 'red' }}>현재 이것만 됨... </span>
                     혼용물 및 세탁 방법
                   </p>
                   <Modal
-                    dialogStyle={{ maxWidth: "300px" }}
+                    dialogStyle={{ maxWidth: '300px' }}
                     isVisible={this.state.isModal}
                     title="구성소재"
                     content={
                       <div>
-                        <p style={{ marginBottom: 10, fontWeight: "bold" }}>
+                        <p style={{ marginBottom: 10, fontWeight: 'bold' }}>
                           걸감
                         </p>
-                        <p style={{ textDecoration: "underline" }}>주요소재</p>
+                        <p style={{ textDecoration: 'underline' }}>주요소재</p>
                         <p>96% 면</p>
                         <p>4% 엘라스탄</p>
                         <div style={{ marginBottom: 20 }}></div>
-                        <p style={{ textDecoration: "underline" }}>부소재</p>
+                        <p style={{ textDecoration: 'underline' }}>부소재</p>
                         <p>66% 폴리에스터,</p>
                         <p>32% 비스코스,</p>
                         <p>2% 엘라스탄</p>
-                        <p style={{ marginTop: 20, fontWeight: "bold" }}>
+                        <p style={{ marginTop: 20, fontWeight: 'bold' }}>
                           안감
                         </p>
                         <p>95% 폴리에스터, 5% 엘라스탄</p>
-                        <p style={{ marginTop: 20, fontWeight: "bold" }}>
+                        <p style={{ marginTop: 20, fontWeight: 'bold' }}>
                           주의사항
                         </p>
                       </div>
                     }
                     onClose={() =>
                       this.setState({
-                        isModal: false
+                        isModal: false,
                       })
                     }
                   />
@@ -144,7 +139,7 @@ class ProductDetail extends Component {
 
           <div className="look-perfection">
             <h1>룩 완성하기</h1>
-            <p style={{ color: "gray" }}>3 상품</p>
+            <p style={{ color: 'gray' }}>3 상품</p>
 
             <div className="look-perfection__images">
               <div>
@@ -158,16 +153,16 @@ class ProductDetail extends Component {
                   <div>
                     <p
                       style={{
-                        borderTop: "1px solid #000",
-                        borderBottom: "1px solid #000",
+                        borderTop: '1px solid #000',
+                        borderBottom: '1px solid #000',
                         background:
-                          "url(https://static.zara.net/stdstatic/1.144.0-b.7/icons/new-arrow-down.svg) no-repeat right",
+                          'url(https://static.zara.net/stdstatic/1.144.0-b.7/icons/new-arrow-down.svg) no-repeat right',
                         backgroundSize: 8,
                         marginTop: 10,
                         marginBottom: 8,
                         fontSize: 14,
-                        padding: "10px 0",
-                        paddingRight: 12
+                        padding: '10px 0',
+                        paddingRight: 12,
                       }}
                     >
                       사이즈를 선택하세요
@@ -189,16 +184,16 @@ class ProductDetail extends Component {
                   <div>
                     <p
                       style={{
-                        borderTop: "1px solid #000",
-                        borderBottom: "1px solid #000",
+                        borderTop: '1px solid #000',
+                        borderBottom: '1px solid #000',
                         background:
-                          "url(https://static.zara.net/stdstatic/1.144.0-b.7/icons/new-arrow-down.svg) no-repeat right",
+                          'url(https://static.zara.net/stdstatic/1.144.0-b.7/icons/new-arrow-down.svg) no-repeat right',
                         backgroundSize: 8,
                         marginTop: 10,
                         marginBottom: 8,
                         fontSize: 14,
-                        padding: "10px 0",
-                        paddingRight: 12
+                        padding: '10px 0',
+                        paddingRight: 12,
                       }}
                     >
                       사이즈를 선택하세요
@@ -220,16 +215,16 @@ class ProductDetail extends Component {
                   <div>
                     <p
                       style={{
-                        borderTop: "1px solid #000",
-                        borderBottom: "1px solid #000",
+                        borderTop: '1px solid #000',
+                        borderBottom: '1px solid #000',
                         background:
-                          "url(https://static.zara.net/stdstatic/1.144.0-b.7/icons/new-arrow-down.svg) no-repeat right",
+                          'url(https://static.zara.net/stdstatic/1.144.0-b.7/icons/new-arrow-down.svg) no-repeat right',
                         backgroundSize: 8,
                         marginTop: 10,
                         marginBottom: 8,
                         fontSize: 14,
-                        padding: "10px 0",
-                        paddingRight: 12
+                        padding: '10px 0',
+                        paddingRight: 12,
                       }}
                     >
                       사이즈를 선택하세요
@@ -249,7 +244,7 @@ class ProductDetail extends Component {
 }
 
 ProductDetail.defaultProps = {
-  isVisible: false
+  isVisible: false,
 };
 
 export default ProductDetail;

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import './LDPMarketing.scss';
+import './Marketing.scss';
 
 class LDPMarketing extends Component {
   render() {
+    const { img } = this.props;
     return (
-      <li className="marketing" key={this.props.img}>
+      <li className="marketing" key={img}>
         <div className="image">
-          <img src={this.props.img}></img>
+          <img src={img}></img>
         </div>
       </li>
     );
