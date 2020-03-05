@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import SignUp from './Pages/SignUp/SignUp';
 import Login from './Pages/Login/Login';
 import Main from './Pages/Main/Main.js';
-import ProductDetail from './Pages/ProductDetail/ProductDetail';
+import ProductDetail from './Pages/ProductDetail/ProductDetail.js';
 import ListDetail from './Pages/ListDetail/ListDetail.js';
-import Search from './Components/Search/Search.js';
-import Store from './Components/Store/Store.js';
+import Search from './Pages/Search/Search.js';
+import Store from './Pages/Store/Store.js';
 
 class Routes extends React.Component {
   render() {

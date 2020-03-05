@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Header from '../Header/Header.js';
-import Nav from '../Nav/Nav.js';
+import Header from '../../Components/Header/Header.js';
+import Nav from '../../Components/Nav/Nav.js';
 import StoreData from './Store-data.js';
 import StoreResult from './StoreResult/StoreResult.js';
 import Map from './Map/Map.js';
@@ -31,7 +31,7 @@ class Store extends Component {
 
   // 클릭하면 키워드 백으로 전송
   sendContent = () => {
-    fetch('http://10.58.5.144:8000/store-info', {
+    fetch('http://13.125.199.45:8000/store-info', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

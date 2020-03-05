@@ -1,29 +1,33 @@
-import React, { Component } from "react";
-import "./LDProduct.scss";
-import LDPMarketing from "../LDPMarketing/LDPMarketing.js";
-import LDPList from "../LDPList/LDPList.js";
-import LDPListTwo from "../LDPList/LDPListTwo.js";
+import React, { Component } from 'react';
+import './LDProduct.scss';
+import LDPMarketing from '../LDPMarketing/LDPMarketing.js';
+import LDPList from '../LDPList/LDPList.js';
+import LDPListTwo from '../LDPList/LDPListTwo.js';
 
 class LDProduct extends Component {
   constructor(props) {
     super(props);
     this.state = {
       marketing: [],
-      product: []
+      product: [],
     };
   }
 
   componentDidMount = () => {
-    fetch("http://localhost:3000/data/data.json")
+    fetch('http://10.58.2.227:8000/clothes/new/1')
       .then(res => res.json())
       .then(res => {
-        this.setState({ marketing: res.marketing, product: res.product_list });
+        console.log(res.new);
+        this.setState({
+          marketing: res.marketing,
+          product: res.new,
+        });
       });
   };
 
   render() {
     const marketingList = this.state.marketing.map(card => {
-      return <LDPMarketing id={card.id} img={card.img} />;
+      return <LDPMarketing img={card} />;
     });
 
     const productList = this.state.product.map(list => {
@@ -31,8 +35,8 @@ class LDProduct extends Component {
         return (
           <LDPList
             id={list.id}
-            img={list.img}
-            new={list.new}
+            img={list.image}
+            new="new"
             name={list.name}
             price={list.price}
           />
@@ -41,8 +45,8 @@ class LDProduct extends Component {
         return (
           <LDPListTwo
             id={list.id}
-            img={list.img}
-            new={list.new}
+            img={list.image}
+            new="new"
             name={list.name}
             price={list.price}
           />

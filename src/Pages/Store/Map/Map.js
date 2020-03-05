@@ -10,6 +10,12 @@ class Map extends Component {
     };
   }
 
+  componentDidUpdate(prevState, nextState) {
+    if (prevState !== nextState) {
+      this.props.stores.length !== 0 && this.makeMap();
+    }
+  }
+
   makeMap = () => {
     const { stores } = this.props;
     // console.log('들어와', stores[0]);
@@ -47,12 +53,6 @@ class Map extends Component {
       marker.setMap(map);
     }
   };
-
-  componentDidUpdate(prevState, nextState) {
-    if (prevState !== nextState) {
-      this.props.stores.length !== 0 && this.makeMap();
-    }
-  }
 
   render() {
     return <div className="Map" id="map"></div>;
