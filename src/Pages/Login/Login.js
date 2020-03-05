@@ -2,23 +2,20 @@ import React, { Component } from 'react';
 import './Login.scss';
 import logo from '../../Images/Black/logo.svg';
 import menuIcon from '../../Images/Black/menu-icon.svg';
+// import Signup from '../SignUp/SignUp';
 // import HoverBtn from '../button/HoverBtn';
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       email: '',
       password: '',
       login: true,
       change1: false,
       change2: false,
+      massage: false,
     };
-    this.activateEmail = this.activateEmail.bind(this);
-    this.disableEmail1 = this.disableEmail1.bind(this);
-    this.activateEmai2 = this.activateEmai2.bind(this);
-    this.disableEmail2 = this.disableEmail2.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   handleEmail = e => {
@@ -34,22 +31,33 @@ class Login extends Component {
   };
   handleKeyDown = e => {
     if (e.keyCode === 13) {
-      alert('dwudbobw');
+      this.setState({
+        massage: true,
+      });
     }
+    console.log('message');
   };
+  // this.state.password.length > 7
+  // ? 'inputTip2'
+  // : 'inputTip1'
+
   handleLoginButton = () => {
     fetch('http://10.58.2.227:8000/account/sign-in', {
       method: 'POST',
       body: JSON.stringify({
-        email: 'aaa@aaa.net',
-        password: 'aaaa',
+        email: this.state.email,
+        password: this.state.password,
       }),
     })
       .then(response => response.json())
       .then(response => {
         // console.log(response.token);
         if (response.token) {
-          localStorage.setItem('token', response.token);
+          alert('로그인되었습니다.');
+          window.localStorage.setItem('token', response.token);
+          this.props.history.push('/');
+        } else {
+          alert('아이디 혹은 비밀번호를 확인하세요');
         }
       });
   };
@@ -121,31 +129,24 @@ class Login extends Component {
                     패스워드
                   </label>
                   <input
-                    onKeyDown={this.handleKeyDown}
                     className={this.state.change2 ? 'black' : 'silver'}
+                    onKeyDown={this.handleKeyDown}
                     onChange={this.handlePassword}
                     onFocus={this.activateEmai2}
                     onBlur={this.disableEmail2}
                     type="password"
+                    required
                   ></input>
-                  <span className="input-tip">
-                    <span
-                      className={
-                        this.state.password.length > 7
-                          ? 'input-tip2'
-                          : 'input-tip1'
-                      }
-                    >
-                      안전한 비밀번호를 입력하십시오. 대문자, 소문자 및 숫자를
-                      포함하여 최소한 8자이어야 합니다.
-                    </span>
-                  </span>
                 </div>
                 <div>
                   <div className="forgetpassword">비밀번호를 잊으셨습니까?</div>
                 </div>
                 <div>
-                  <button className="login" onClick={this.handleLoginButton}>
+                  <button
+                    className={'login'}
+                    type={'submit'}
+                    onClick={this.handleLoginButton}
+                  >
                     로그인
                   </button>
                 </div>
@@ -160,7 +161,12 @@ class Login extends Component {
                   아직 Zara.com 의 회원이 아니시라면 이메일로 간편하게 가입하실
                   수 있습니다.
                 </p>
-                <button className="makeUser">계정 만들기 </button>
+                <button
+                  className={'makeUser'}
+                  onClick={() => this.props.history.push('/Signup')}
+                >
+                  계정 만들기{' '}
+                </button>
               </div>
             </div>
           </body>
@@ -243,14 +249,6 @@ class Login extends Component {
             <div className="rights">© All rights reserved</div>
           </article>
         </nav>
-        <footer>
-          아이티엑스코리아 유한회사 ｜ 사업자등록번호: 120-88-14733 ｜ 대표자 :
-          ROMAY DE LA COLINA JOSE MANUEL ｜ 서울시 강남구 영동대로 511 (삼성동,
-          트레이드타워 33층) ｜ 대표번호: 080-479-0880 | 이메일:
-          contact.kr@zara.com ｜ 호스팅 서비스 사업자: ITX Merken, B.V. ｜
-          통신판매업신고 : 제2014-서울강남-02297 (사업자정보확인) ｜
-          개인정보취급방침 | 이용약관
-        </footer>
       </div>
     );
   }
