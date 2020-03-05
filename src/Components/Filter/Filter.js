@@ -1,24 +1,25 @@
-import React, { Component } from "react";
-import "./Filter.scss";
+import React, { Component } from 'react';
+import './Filter.scss';
 
 class Filter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filter: true
+      filter: true,
     };
   }
 
-  handleFilter = e => {
+  handlerFilter = e => {
+    console.log(e.taeget);
     this.setState({
-      filter: !this.state.filter
+      filter: !this.state.filter,
     });
   };
 
   render() {
     return (
       <div
-        className={`filter ${this.props.mode ? "hide-filter" : "show-filter"}`}
+        className={`filter ${this.props.mode ? 'hide-filter' : 'show-filter'}`}
       >
         <ul className="filter-hole">
           <li className="filter-head">
@@ -26,11 +27,7 @@ class Filter extends Component {
             <div>EU 32 (KR 23)</div>
             <div>EU 34 (KR 24)</div>
             <div>EU 44 (KR 29)</div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
+            <div className={this.state.filter ? 'view-hide' : 'view-more'}>
               <div>XXS (KR 33)</div>
               <div>XS (KR 44)</div>
               <div>S (KR 55)</div>
@@ -53,19 +50,11 @@ class Filter extends Component {
               <div>275</div>
             </div>
             {/* 필터 더보기 버튼 */}
-            <div className="view-btn" onClick={this.handleFilter}>
-              <div
-                className={`view ${
-                  this.state.filter ? "view-more" : "view-hide"
-                }`}
-              >
+            <div className="view-btn" onClick={this.handlerFilter}>
+              <div className={this.state.filter ? 'view-more' : 'view-hide'}>
                 + VIEW MORE
               </div>
-              <div
-                className={`view ${
-                  this.state.filter ? "view-hide" : "view-more"
-                }`}
-              >
+              <div className={this.state.filter ? 'view-hide' : 'view-more'}>
                 - VIEW LESS
               </div>
             </div>
@@ -75,28 +64,16 @@ class Filter extends Component {
             <div>갈색</div>
             <div>검정</div>
             <div>금속</div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
+            <div className={this.state.filter ? 'view-hide' : 'view-more'}>
               <div>기타</div>
               <div>노랑</div>
             </div>
             {/* 필터 더보기 버튼 */}
             <div className="view-btn" onClick={this.handleFilter}>
-              <div
-                className={`view ${
-                  this.state.filter ? "view-more" : "view-hide"
-                }`}
-              >
+              <div className={this.state.filter ? 'view-more' : 'view-hide'}>
                 + VIEW MORE
               </div>
-              <div
-                className={`view ${
-                  this.state.filter ? "view-hide" : "view-more"
-                }`}
-              >
+              <div className={this.state.filter ? 'view-hide' : 'view-more'}>
                 - VIEW LESS
               </div>
             </div>
@@ -112,28 +89,16 @@ class Filter extends Component {
             <div>가방</div>
             <div>구두</div>
             <div>니트</div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
+            <div className={this.state.filter ? 'view-hide' : 'view-more'}>
               <div>드레스</div>
               <div>바지</div>
             </div>
             {/* 필터 더보기 버튼 */}
             <div className="view-btn" onClick={this.handleFilter}>
-              <div
-                className={`view ${
-                  this.state.filter ? "view-more" : "view-hide"
-                }`}
-              >
+              <div className={this.state.filter ? 'view-more' : 'view-hide'}>
                 + VIEW MORE
               </div>
-              <div
-                className={`view ${
-                  this.state.filter ? "view-hide" : "view-more"
-                }`}
-              >
+              <div className={this.state.filter ? 'view-hide' : 'view-more'}>
                 - VIEW LESS
               </div>
             </div>
@@ -143,26 +108,18 @@ class Filter extends Component {
             <div>10,000원</div>
             <div>40,000원</div>
             <div>70,000원</div>
-            <div
-              className={`view ${
-                this.state.filter ? "view-hide" : "view-more"
-              }`}
-            >
+            <div className={this.state.filter ? 'view-hide' : 'view-more'}>
               <div>100,000원</div>
               <div>130,000원</div>
             </div>
             {/* 필터 더보기 버튼 */}
             <div className="view-btn" onClick={this.handleFilter}>
-              <div
-                className={`view ${
-                  this.state.filter ? "view-more" : "view-hide"
-                }`}
-              >
+              <div className={this.state.filter ? 'view-more' : 'view-hide'}>
                 + VIEW MORE
               </div>
               <div
                 className={`view ${
-                  this.state.filter ? "view-hide" : "view-more"
+                  this.state.filter ? 'view-hide' : 'view-more'
                 }`}
               >
                 - VIEW LESS

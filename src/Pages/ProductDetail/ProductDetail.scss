@@ -1,0 +1,128 @@
+.product-wrapper {
+  .look-perfection {
+    margin-top: 180px;
+    height: 200vh;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    h1 {
+      font-size: 35px;
+      font-weight: bold;
+    }
+
+    &__images {
+      margin-top: 30px;
+      max-width: 100vw;
+      display: flex;
+      justify-content: space-between;
+      div div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+      }
+
+      img {
+        width: 30vw;
+      }
+    }
+  }
+}
+
+.product-detail {
+  &__btn {
+    cursor: pointer;
+
+    p {
+      width: 100%;
+      text-align: center;
+    }
+
+    text-align: center;
+    width: 50%;
+    margin-left: 5px;
+    padding: 10px 5px;
+    border: 1px solid #000;
+  }
+
+  display: flex;
+
+  &__image-container {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    img {
+      width: 100%;
+    }
+  }
+
+  &__info-container {
+    overflow-y: auto;
+
+    position: sticky;
+    top: 0;
+    right: 0;
+    width: 40vw;
+    height: 100vh;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .info {
+      padding-top: 25%;
+      padding-left: 8%;
+      padding-right: 8%;
+
+      &__text {
+        p.info-p {
+          font-size: 12px;
+          margin: 15px 0;
+          background: url(https://static.zara.net/stdstatic/1.144.0-b.7/icons/new-arrow-right.svg)
+            no-repeat 0;
+          padding-left: 12px;
+          background-size: 6px;
+          cursor: pointer;
+        }
+
+        margin-bottom: 10%;
+      }
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .size-lists {
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
+      margin-bottom: 30px;
+      margin-top: 10px;
+      cursor: pointer;
+
+      li {
+        padding: 10px 5px;
+
+        &:hover {
+          background: #eee;
+        }
+      }
+    }
+
+    .product-btn {
+      font-weight: bold;
+      text-align: center;
+      padding: 10px 5px;
+      margin-bottom: 20px;
+      border: 1px solid #000;
+      font-size: 14px;
+
+      &--black {
+        color: #fff;
+        background: #000;
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
