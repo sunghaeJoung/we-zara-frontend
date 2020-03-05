@@ -77,6 +77,10 @@
   }
 }
 
+.nav-bar::-webkit-scrollbar {
+  display: none !important;
+}
+
 .showList {
   display: block;
 }
