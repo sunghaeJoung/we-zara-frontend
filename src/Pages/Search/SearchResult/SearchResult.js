@@ -10,15 +10,12 @@ class SearchResult extends Component {
   }
 
   //결과리스트 구현 함수
-  searchResult = () => {
-    let result = this.props.search_data.filter(card =>
-      card.includes(this.props.keyword),
-    );
-    if (result.length > 0) {
-      return result.map((keyword, i) => {
+  searchResult = list => {
+    if (list != 0) {
+      return list.map(keyword => {
         return (
           <li>
-            <li className="list" key={i}>
+            <li className="list" key={keyword}>
               {keyword}
             </li>
           </li>
@@ -33,16 +30,16 @@ class SearchResult extends Component {
     }
   };
 
-  //결과제품 구현 함수
-  searchProduct = data =>
-    data.map(card => {
+  // //결과제품 구현 함수
+  searchProduct = product =>
+    product.map(card => {
       return (
-        <li className="product" key={card.id}>
+        <li className="product" key={card.name}>
           <div className="image">
-            <img alt="셔츠이미지" src={card.img}></img>
+            <img alt="제품이미지" src={card.image}></img>
           </div>
           <div className="info">
-            <div className="new">{card.new}</div>
+            <div className="new">NEW</div>
             <div className="name">{card.name}</div>
             <div className="price">{card.price}</div>
           </div>
@@ -51,18 +48,39 @@ class SearchResult extends Component {
     });
 
   render() {
+    const { search_data, keyword } = this.props;
+    console.log(search_data.results);
     return (
       <div
         className="search-result"
-        style={{ display: this.props.keyword ? 'block' : 'none' }}
+        style={{ display: keyword ? 'block' : 'none' }}
       >
         {/* 결과리스트 */}
-        {this.searchResult()}
+        {search_data.list && this.searchResult(search_data.list)}
+
+        {/* 결과제품 */}
         <section>
-          {/* 결과제품 */}
-          {this.state.product_mode && (
-            <ul>{this.searchProduct(this.props.product_data)}</ul>
-          )}
+          {
+            (this.state.product_mode,
+            search_data.list && (
+              <ul>
+                {search_data.results.map(card => {
+                  return (
+                    <li className="product" key={card.id}>
+                      <div className="image">
+                        <img alt="셔츠이미지" src={card.image}></img>
+                      </div>
+                      <div className="info">
+                        <div className="new">NEW</div>
+                        <div className="name">{card.name}</div>
+                        <div className="price">{card.price}</div>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            ))
+          }
         </section>
       </div>
     );

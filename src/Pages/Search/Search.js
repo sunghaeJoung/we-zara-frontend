@@ -17,21 +17,27 @@ class Search extends Component {
     };
   }
 
-  componentDidMount = () => {
-    fetch('http://localhost:3000/data/data.json')
-      .then(res => res.json())
-      .then(res => {
-        this.setState({
-          search_data: res.search,
-        });
-      });
-  };
-
-  //input.value받는 onChange 함수
+  //input.value받는 onKeyPress 함수
   searchKeyword = e => {
-    this.setState({
-      keyword: e.target.value,
-    });
+    if (window.event.keyCode === 13) {
+      this.setState(
+        {
+          keyword: e.target.value,
+        },
+        () => {
+          fetch(
+            `http://10.58.2.227:8000/clothes/search?keyword=${this.state.keyword}`,
+          )
+            .then(res => res.json())
+            .then(res => {
+              // console.log(res.list);
+              this.setState({
+                search_data: res,
+              });
+            });
+        },
+      );
+    }
   };
 
   // 네비게이션바 컨트롤
@@ -68,7 +74,7 @@ class Search extends Component {
           {/* 검색창 */}
           <div className="search">
             <div className="search-input">
-              <input type="text" onChange={this.searchKeyword}></input>
+              <input type="text" onKeyPress={this.searchKeyword}></input>
               <img
                 alt="자라홈"
                 src={close}
