@@ -11,15 +11,16 @@ class Header extends Component {
   }
 
   render() {
+    const { background, handlerOver, search_bar } = this.props;
     return (
       <header>
-        <div className={`header ${this.props.background ? 'fill_BG' : ''}`}>
+        <div className={`header ${background ? 'fill_BG' : ''}`}>
           <div className="header-left">
             <img
               className="menu-icon"
               src={menuIcon}
               alt=""
-              onMouseEnter={this.props.handlerOver}
+              onMouseEnter={handlerOver}
             ></img>
             <a
               href="./"
@@ -29,17 +30,11 @@ class Header extends Component {
             </a>
           </div>
           <a href="/search" className="search">
-            <div
-              className={`search-txt ${
-                this.props.background ? 'hide-search' : ''
-              }`}
-            >
+            <div className={`search-txt ${search_bar ? 'hide-search' : ''}`}>
               검색
             </div>
             <div
-              className={`search-line ${
-                this.props.background ? 'hide-search' : ''
-              }`}
+              className={`search-line ${search_bar ? 'hide-search' : ''}`}
             ></div>
           </a>
           <div className="header-right">
