@@ -23,7 +23,6 @@ class Search extends Component {
       .then(res => {
         this.setState({
           search_data: res.search,
-          product_data: res.product_list,
         });
       });
   };
@@ -54,14 +53,7 @@ class Search extends Component {
   };
 
   render() {
-    const {
-      background,
-      search_bar,
-      keyword,
-      search_data,
-      product_data,
-      nav,
-    } = this.state;
+    const { background, search_bar, keyword, search_data, nav } = this.state;
 
     return (
       <div className="search-page">
@@ -87,11 +79,7 @@ class Search extends Component {
           </div>
 
           {/* 검색 결과 컴포넌트 */}
-          <SearchResult
-            keyword={keyword}
-            search_data={search_data}
-            product_data={product_data}
-          />
+          <SearchResult keyword={keyword} search_data={search_data} />
         </section>
 
         {/* 검색페이지 네비게이션바 */}

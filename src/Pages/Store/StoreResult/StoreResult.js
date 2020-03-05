@@ -10,12 +10,9 @@ class StoreResult extends Component {
   }
 
   handleClickBG = id => {
-    this.setState(
-      {
-        click: id,
-      },
-      () => console.log(this.state.click),
-    );
+    this.setState({
+      click: id,
+    });
   };
 
   render() {
