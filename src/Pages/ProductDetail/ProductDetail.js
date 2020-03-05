@@ -9,8 +9,20 @@ class ProductDetail extends Component {
     super(props);
     this.state = {
       nav: 'close',
+      productDetailData: [],
     };
   }
+
+  componentDidMount = () => {
+    fetch('http://localhost:3001/data/data2.json')
+      .then(res => res.json())
+      .then(res => {
+        console.log(10);
+        this.setState({
+          productDetailData: res.product_detail,
+        });
+      });
+  };
 
   handlerOver = () => {
     this.setState({
@@ -27,7 +39,7 @@ class ProductDetail extends Component {
   render() {
     return (
       <>
-        <PDContent />
+        <PDContent data={this.state.productDetailData} />
       </>
     );
   }

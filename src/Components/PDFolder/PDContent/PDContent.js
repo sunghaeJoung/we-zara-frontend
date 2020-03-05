@@ -20,30 +20,9 @@ class PDContent extends Component {
       <div className="product-wrapper">
         <div className="product-detail">
           <div className="product-detail__image-container">
-            <img
-              src="https://static.zara.net/photos///2020/V/0/1/p/0190/021/172/72/w/1412/0190021172_1_1_1.jpg?ts=1582542145957"
-              alt=""
-            />
-            <img
-              src="https://static.zara.net/photos///2020/V/0/1/p/0190/021/172/72/w/1412/0190021172_2_1_1.jpg?ts=1582542167932"
-              alt=""
-            />
-            <img
-              src="https://static.zara.net/photos///2020/V/0/1/p/0190/021/172/72/w/1412/0190021172_2_2_1.jpg?ts=1582542146942"
-              alt=""
-            />
-            <img
-              src="https://static.zara.net/photos///2020/V/0/1/p/0190/021/172/72/w/1412/0190021172_2_3_1.jpg?ts=1582542154939"
-              alt=""
-            />
-            <img
-              src="https://static.zara.net/photos///2020/V/0/1/p/0190/021/172/72/w/1412/0190021172_2_4_1.jpg?ts=1582542152612"
-              alt=""
-            />
-            <img
-              src="https://static.zara.net/photos///2020/V/0/1/p/0190/021/172/72/w/1412/0190021172_6_1_1.jpg?ts=1582542139724"
-              alt=""
-            />
+            {this.props.data.map(arr => (
+              <img src={arr.img} alt="" />
+            ))}
           </div>
 
           <div className="product-detail__info-container">

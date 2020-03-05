@@ -1,5 +1,5 @@
 {
-  "data": [
+  "slider": [
     {
       "bg": [
         "url(https://static.zara.net/photos//mkt/spots/ss20-north-new-in-man/subhome-xmedia-08//landscape_0.jpg) center/cover",
@@ -115,6 +115,26 @@
           "Selected pieces with new pictures curated for you"
         ]
       }
+    }
+  ],
+  "product_detail": [
+    {
+      "img": "https://static.zara.net/photos///2020/V/0/1/p/0190/021/172/72/w/1412/0190021172_1_1_1.jpg?ts=1582542145957"
+    },
+    {
+      "img": "https://static.zara.net/photos///2020/V/0/1/p/0190/021/172/72/w/1412/0190021172_2_1_1.jpg?ts=1582542167932"
+    },
+    {
+      "img": "https://static.zara.net/photos///2020/V/0/1/p/0190/021/172/72/w/1412/0190021172_2_2_1.jpg?ts=1582542146942"
+    },
+    {
+      "img": "https://static.zara.net/photos///2020/V/0/1/p/0190/021/172/72/w/1412/0190021172_2_3_1.jpg?ts=1582542154939"
+    },
+    {
+      "img": "https://static.zara.net/photos///2020/V/0/1/p/0190/021/172/72/w/1412/0190021172_2_4_1.jpg?ts=1582542152612"
+    },
+    {
+      "img": "https://static.zara.net/photos///2020/V/0/1/p/0190/021/172/72/w/1412/0190021172_6_1_1.jpg?ts=1582542139724"
     }
   ]
 }

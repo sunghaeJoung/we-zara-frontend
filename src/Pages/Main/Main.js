@@ -14,12 +14,11 @@ class Main extends Component {
   }
 
   componentDidMount = () => {
-    fetch('http://localhost:3000/data/sliderData.json')
+    fetch('http://localhost:3001/data/data2.json')
       .then(res => res.json())
       .then(res => {
-        console.log(10);
         this.setState({
-          sliderData: res.data,
+          sliderData: res.slider,
         });
       });
   };

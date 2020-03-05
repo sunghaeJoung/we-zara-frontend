@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './Pages/Login/Login';
 import Main from './Pages/Main/Main.js';
 import ProductDetail from './Pages/ProductDetail/ProductDetail';
+import ShoppingCart from './Pages/ShoppingCart/ShoppingCart';
 import ListDetail from './Pages/ListDetail/ListDetail.js';
 import Search from './Components/Search/Search.js';
 import Store from './Components/Store/Store.js';
