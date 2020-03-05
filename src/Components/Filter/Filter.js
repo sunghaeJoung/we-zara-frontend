@@ -9,8 +9,7 @@ class Filter extends Component {
     };
   }
 
-  handlerFilter = e => {
-    console.log(e.taeget);
+  handlerFilter = () => {
     this.setState({
       filter: !this.state.filter,
     });

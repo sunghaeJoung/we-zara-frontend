@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Map.scss';
-import markerImg from '../../../Images/marker.png';
 
 class Map extends Component {
   constructor(props) {
@@ -18,7 +17,7 @@ class Map extends Component {
 
   makeMap = () => {
     const { stores } = this.props;
-    // console.log('들어와', stores[0]);
+    console.log('들어와', stores[0]);
     let mapContainer = document.getElementById('map');
     let mapOption = {
       center: new window.kakao.maps.LatLng(
