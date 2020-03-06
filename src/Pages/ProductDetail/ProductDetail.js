@@ -9,17 +9,16 @@ class ProductDetail extends Component {
     super(props);
     this.state = {
       nav: 'close',
-      productDetailData: [],
+      productImages: [],
     };
   }
 
   componentDidMount = () => {
-    fetch('http://localhost:3000/data/data2.json')
+    fetch('http://10.58.2.227:8000/clothes/details/150/11')
       .then(res => res.json())
       .then(res => {
-        console.log(10);
         this.setState({
-          productDetailData: res.product_detail,
+          productImages: res.clothes_details.images,
         });
       });
   };
@@ -39,7 +38,9 @@ class ProductDetail extends Component {
   render() {
     return (
       <>
-        <PDContent data={this.state.productDetailData} />
+        <Header handlerOver={this.handlerOver} style={{ display: 'none' }} />
+        <Nav handlerOut={this.handlerOut} nav={this.state.nav} />
+        <PDContent data={this.state.productImages} />
       </>
     );
   }

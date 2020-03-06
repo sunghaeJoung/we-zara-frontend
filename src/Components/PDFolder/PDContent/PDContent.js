@@ -21,7 +21,7 @@ class PDContent extends Component {
         <div className="product-detail">
           <div className="product-detail__image-container">
             {this.props.data.map(arr => (
-              <img src={arr.img} alt="" />
+              <img src={arr} alt="" />
             ))}
           </div>
 
@@ -49,7 +49,7 @@ class PDContent extends Component {
                 더 보기
               </p>
               <ul className="size-lists">
-                <li onClick="this.">XS (KR 44)</li>
+                <li>XS (KR 44)</li>
                 <li>S (KR 55)</li>
                 <li>M (KR 66)</li>
                 <li>L (KR 77)</li>

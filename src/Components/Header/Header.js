@@ -26,7 +26,12 @@ class Header extends Component {
               href="./"
               title="Zara South Korea / 대한민국, 자라 홈페이지로 이동"
             >
-              <img className="logo" src={logo} alt="자라"></img>
+              <img
+                className="logo"
+                style={this.props.style}
+                src={logo}
+                alt="자라"
+              ></img>
             </a>
           </div>
           <a href="/search" className="search">
