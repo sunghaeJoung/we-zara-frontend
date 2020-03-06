@@ -18,10 +18,12 @@ class ListDetail extends Component {
   }
 
   componentDidMount = () => {
-    fetch('http://10.58.2.227:8000/clothes/1/1')
+    const queryId = this.props.location.search.split('=')[1];
+    // console.log('queryId ', queryId);
+
+    fetch(`http://10.58.2.227:8000/clothes/1/${queryId}`)
       .then(res => res.json())
       .then(res => {
-        console.log(res.clothes_list);
         this.setState({
           product: res.clothes_list,
           filter: res.filter_list,
