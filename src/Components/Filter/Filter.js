@@ -19,7 +19,7 @@ class Filter extends Component {
       [name]: id,
     };
 
-    fetch(`http://10.58.2.227:8000/clothes/1/3?${name}=1`, {
+    fetch('http://10.58.2.227:8000/clothes/1/3', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(obj),
