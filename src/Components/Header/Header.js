@@ -38,7 +38,7 @@ class Header extends Component {
             ></div>
           </a>
           <div className="header-right">
-            <a href="로그인">로그인</a>
+            <a href="login">로그인</a>
             <a href="도움말">도움말</a>
             <a href="장바구니" className="cart">
               <img src={cart} alt=""></img>

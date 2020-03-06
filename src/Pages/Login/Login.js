@@ -169,7 +169,7 @@ class Login extends Component {
                   </p>
                   <button
                     className={'makeUser'}
-                    onClick={() => this.props.history.push('/Signup')}
+                    onClick={() => this.props.history.push('/signup')}
                   >
                     계정 만들기{' '}
                   </button>

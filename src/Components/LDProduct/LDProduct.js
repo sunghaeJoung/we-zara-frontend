@@ -5,28 +5,8 @@ import List from './List/List.js';
 import ListTwo from './List/ListTwo.js';
 
 class LDProduct extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      marketing: [],
-      product: [],
-    };
-  }
-
-  componentDidMount = () => {
-    fetch('http://10.58.2.227:8000/clothes/new/1')
-      .then(res => res.json())
-      .then(res => {
-        console.log(res.new);
-        this.setState({
-          marketing: res.marketing,
-          product: res.new,
-        });
-      });
-  };
-
   render() {
-    const { marketing, product } = this.state;
+    const { marketing, product } = this.props;
     return (
       <div className="list-detail-marketing">
         <ul className="list-detail-marketing-ul">
