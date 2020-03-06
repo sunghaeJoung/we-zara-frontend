@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './SignUp.scss';
+import './Registeration.scss';
 import logo from '../../Images/Black/logo.svg';
 import menuIcon from '../../Images/Black/menu-icon.svg';
 import DaumPostcode from 'react-daum-postcode';
