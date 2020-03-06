@@ -1,4 +1,7 @@
 .Login {
+  height: 100vh;
+  overflow: hidden;
+  padding-top: 100px;
   .top {
     display: flex;
     justify-content: space-between;
@@ -7,7 +10,7 @@
     .topleft {
       display: flex;
       align-items: center;
-  
+
       .threeline {
         width: 33px;
         height: 33px;
@@ -23,7 +26,8 @@
   }
   body {
     .feed {
-      padding: 60px 32px 0 368px;
+      margin-right: -150px;
+      padding: 60px 32px 0 18%;
       display: flex;
     }
     .feed1 {
@@ -34,7 +38,7 @@
         font-weight: bold;
         margin-bottom: 8px;
       }
-  
+
       .email {
         margin-top: 50px;
         margin-bottom: 30px;
@@ -50,15 +54,13 @@
         width: 350px;
         padding-bottom: 12px;
         position: relative;
-  
-        .input-tip1 {
-          // position: absolute;
+
+        span.inputTip1 {
           padding-top: 16px;
           font-size: 12.5px;
           color: red;
         }
-  
-        .input-tip2 {
+        span.inputTip2 {
           display: none;
         }
       }
@@ -82,15 +84,15 @@
         width: 100%;
         outline: none;
       }
-  
+
       .silver {
         border-bottom: 2px solid silver;
       }
-  
+
       .black {
         border-bottom: 2px solid black;
       }
-  
+
       .forgetpassword {
         margin-bottom: 30px;
         font-size: 14px;
@@ -100,7 +102,7 @@
           background-color: #222;
         }
       }
-  
+
       .login {
         background-color: rgba(0, 0, 0, 1);
         color: white;
@@ -116,7 +118,6 @@
         background-color: blue;
       }
     }
-  
     .feed2 {
       background-color: white;
       .new-user {
@@ -141,7 +142,7 @@
     background-color: white;
     margin: 300px 40px 0 285px;
     padding: 0 0 30px;
-  
+
     ul {
       list-style: none;
     }
@@ -163,7 +164,7 @@
         margin-bottom: 40px;
       }
     }
-  
+
     .help {
       display: flex;
       flex-direction: column;
@@ -214,4 +215,3 @@
     color: black;
   }
 }
-

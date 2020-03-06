@@ -17,33 +17,33 @@ class Search extends Component {
     };
   }
 
-  componentDidMount = () => {
-    fetch('http://localhost:3000/data/data.json')
-      .then(res => res.json())
-      .then(res => {
-        this.setState({
-          search_data: res.search,
-        });
-      });
-  };
-
-  //input.value받는 onChange 함수
+  //input.value받는 onKeyPress 함수
   searchKeyword = e => {
-    this.setState({
-      keyword: e.target.value,
-    });
+    if (window.event.keyCode === 13) {
+      this.setState(
+        {
+          keyword: e.target.value,
+        },
+        () => {
+          fetch(
+            `http://10.58.2.227:8000/clothes/search?keyword=${this.state.keyword}`,
+          )
+            .then(res => res.json())
+            .then(res => {
+              // console.log(res.list);
+              this.setState({
+                search_data: res,
+              });
+            });
+        },
+      );
+    }
   };
 
-  // 네비게이션바 컨트롤
-  handlerOver = () => {
+  // nav bar 컨트롤
+  handlerNav = str => {
     this.setState({
-      nav: 'open',
-    });
-  };
-
-  handlerOut = () => {
-    this.setState({
-      nav: 'close',
+      nav: str,
     });
   };
 
@@ -58,17 +58,17 @@ class Search extends Component {
     return (
       <div className="search-page">
         <Header
-          handlerOver={this.handlerOver}
+          handlerOver={() => this.handlerNav('open')}
           background={background}
           search_bar={search_bar}
         />
-        <Nav handlerOut={this.handlerOut} nav={nav} />
+        <Nav handlerOut={() => this.handlerNav('close')} nav={nav} />
 
         <section>
           {/* 검색창 */}
           <div className="search">
             <div className="search-input">
-              <input type="text" onChange={this.searchKeyword}></input>
+              <input type="text" onKeyPress={this.searchKeyword}></input>
               <img
                 alt="자라홈"
                 src={close}

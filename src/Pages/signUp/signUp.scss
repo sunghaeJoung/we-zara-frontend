@@ -1,0 +1,273 @@
+.SignUp {
+  main {
+    padding-top: 100px;
+    .feed {
+      padding: 60px 32px 0 250px;
+      margin-right: -400px;
+      .feed1 {
+        width: 60%;
+        .user {
+          font-size: 32px;
+          font-weight: bold;
+          margin-bottom: 8px;
+        }
+        .user1 {
+          font-size: 14px;
+          margin-bottom: 30px;
+        }
+        .topbox {
+          color: gray;
+          width: 350px;
+          .colorred {
+            color: silver;
+            font-size: 12px;
+            padding-top: 5px;
+          }
+          label {
+            font-size: 15px;
+            position: absolute;
+            top: 0;
+            padding: 0 10px;
+            padding-left: 0;
+            margin-left: 0;
+            transition: all 0.5s ease;
+          }
+          label.change {
+            font-size: 12px;
+            transform: translateY(-30px);
+            color: silver;
+          }
+          input {
+            border-style: none;
+            height: 30px;
+            width: 100%;
+            outline: none;
+            &.black {
+              border-bottom: 2px solid black;
+            }
+            &.silver {
+              border-bottom: 2px solid silver;
+            }
+          }
+        }
+        .email {
+          margin-top: 50px;
+          margin-bottom: 30px;
+          color: gray;
+          width: 350px;
+          padding-bottom: 12px;
+          position: relative;
+        }
+        .SignUpPassword {
+          display: flex;
+          justify-content: space-between;
+          .password {
+            margin-top: 50px;
+            margin-bottom: 30px;
+            color: gray;
+            width: 350px;
+            padding-bottom: 12px;
+            position: relative;
+          }
+          .rePassword {
+            margin-top: 50px;
+            margin-bottom: 30px;
+            color: gray;
+            width: 350px;
+            padding-bottom: 12px;
+            position: relative;
+          }
+        }
+        .SignUpEmail {
+          display: flex;
+          justify-content: space-between;
+          .name {
+            margin-top: 50px;
+            margin-bottom: 30px;
+            color: gray;
+            width: 350px;
+            padding-bottom: 12px;
+            position: relative;
+          }
+          .zipCode {
+            margin-top: 50px;
+            margin-bottom: 30px;
+            color: gray;
+            width: 350px;
+            padding-bottom: 12px;
+            position: relative;
+            justify-content: space-between;
+            display: flex;
+          }
+          .zipCodes {
+            width: 60%;
+          }
+          .zipCodeButton {
+            background-color: black;
+            color: white;
+            height: 30px;
+            width: 130px;
+            cursor: pointer;
+            &:hover {
+              background-color: silver;
+              color: white;
+            }
+          }
+        }
+        .SignUpAdress {
+          display: flex;
+          justify-content: space-between;
+          .adress {
+            margin-top: 50px;
+            margin-bottom: 30px;
+            color: gray;
+            width: 350px;
+            padding-bottom: 12px;
+            position: relative;
+          }
+          .options {
+            margin-top: 50px;
+            margin-bottom: 30px;
+            color: gray;
+            width: 350px;
+            padding-bottom: 12px;
+            position: relative;
+          }
+        }
+        .korea {
+          display: flex;
+          justify-content: space-between;
+          .area {
+            margin-top: 50px;
+            margin-bottom: 30px;
+            color: gray;
+            width: 350px;
+            padding-bottom: 12px;
+            position: relative;
+            display: flex;
+          }
+          .areaNumber {
+            margin-right: 10px;
+            width: 80px;
+          }
+          .area1 {
+            width: 100%;
+          }
+        }
+        .checkBox {
+          font-size: 12px;
+
+          label {
+            margin-left: 15px;
+            margin-bottom: 30px;
+          }
+        }
+        .SignUpButton {
+          background-color: rgba(0, 0, 0, 1);
+          color: white;
+          width: 330px;
+          height: 40px;
+          cursor: pointer;
+          margin: 50px 0;
+          &:hover {
+            background-color: silver;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  nav {
+    background-color: white;
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 27px 5px 16px;
+      width: 100%;
+      .topleft {
+        display: flex;
+        align-items: center;
+
+        .threeline {
+          width: 33px;
+          height: 33px;
+        }
+        .ZARA {
+          width: 170px;
+        }
+      }
+    }
+    article {
+      a {
+        color: black;
+      }
+      background-color: white;
+      margin: 300px 40px 0 285px;
+      padding: 0 0 30px;
+
+      ul {
+        list-style: none;
+      }
+      .ul-list {
+        display: flex;
+        justify-content: space-between;
+        padding: 30px 210px 50px 120px;
+        border-top: 1px solid silver;
+        border-bottom: 1px solid silver;
+      }
+      li {
+        margin: 0 0 16px;
+        .list {
+          font-size: 14px;
+        }
+        .li-title {
+          font-weight: 700;
+          font-size: 18px;
+          margin-bottom: 40px;
+        }
+      }
+      .help {
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+      }
+      .follow {
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+      }
+      .company {
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+      }
+      .policy {
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+      }
+      .blank {
+        height: 40px;
+      }
+      .korea {
+        display: flex;
+        justify-content: space-between;
+      }
+      .rights {
+        float: right;
+        font-size: 12px;
+        color: silver;
+        margin-top: 30px;
+      }
+    }
+  }
+  footer {
+    width: 70%;
+    padding: 50px 10px 40px 10px;
+    margin: 80px 0 14px 390px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 20px;
+  }
+}

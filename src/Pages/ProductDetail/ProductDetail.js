@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ProductDetail.scss';
 import PDContent from '../../Components/PDFolder/PDContent/PDContent';
+import Modal from '../../Components/Modal/Modal';
 import Header from '../../Components/Header/Header';
 import Nav from '../../Components/Nav/Nav';
 
@@ -9,7 +10,10 @@ class ProductDetail extends Component {
     super(props);
     this.state = {
       nav: 'close',
-      productImages: [],
+      images: [],
+      title: '',
+      price: '',
+      description: '',
     };
   }
 
@@ -18,7 +22,10 @@ class ProductDetail extends Component {
       .then(res => res.json())
       .then(res => {
         this.setState({
-          productImages: res.clothes_details.images,
+          images: res.clothes_details.images,
+          title: res.clothes_details.clothes.name,
+          price: res.clothes_details.price,
+          description: res.clothes_details.description,
         });
       });
   };
@@ -40,7 +47,12 @@ class ProductDetail extends Component {
       <>
         <Header handlerOver={this.handlerOver} style={{ display: 'none' }} />
         <Nav handlerOut={this.handlerOut} nav={this.state.nav} />
-        <PDContent data={this.state.productImages} />
+        <PDContent
+          data={this.state.images}
+          title={this.state.title}
+          price={this.state.price}
+          description={this.state.description}
+        />
       </>
     );
   }

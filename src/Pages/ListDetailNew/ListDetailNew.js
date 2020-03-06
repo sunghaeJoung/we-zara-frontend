@@ -1,50 +1,36 @@
 import React, { Component } from 'react';
-import './ListDetail.scss';
+import './ListDetailNew.scss';
 import LDHeader from '../../Components/LDProduct/LDHeader/LDHeader.js';
 import Nav from '../../Components/Nav/Nav.js';
 import Filter from '../../Components/Filter/Filter.js';
-import LDList from './LDList/LDList.js';
+import LDProduct from '../../Components/LDProduct/LDProduct.js';
 
-class ListDetail extends Component {
+class ListDetailNew extends Component {
   constructor(props) {
     super(props);
     this.state = {
       nav: 'close',
       mode: true,
       header_BG: true,
-      product: [],
-      filter: [],
     };
   }
 
-  //스크롤로 필터컴포 컨트롤
-  componentDidMount = () => {
-    window.addEventListener('scroll', this.handlerScroll, true);
-  };
+  // //스크롤로 필터컴포 컨트롤
+  // componentDidMount = () => {
+  //   window.addEventListener("scroll", this.handlerScroll, true);
+  // };
 
-  componentWillUnmount = () => {
-    window.addEventListener('scroll', this.handlerScroll, false);
-  };
+  // componentWillUnmount = () => {
+  //   window.addEventListener("scroll", this.handlerScroll, false);
+  // };
 
-  handlerScroll = () => {
-    if (this.state.mode === false) {
-      this.setState({
-        mode: true,
-      });
-    }
-  };
-
-  componentDidMount = () => {
-    fetch('http://10.58.2.227:8000/clothes/1/1')
-      .then(res => res.json())
-      .then(res => {
-        console.log(res.clothes_list);
-        this.setState({
-          product: res.clothes_list,
-          filter: res.filter_list,
-        });
-      });
-  };
+  // handlerScroll = () => {
+  //   if (this.state.mode === false) {
+  //     this.setState({
+  //       mode: true
+  //     });
+  //   }
+  // };
 
   // nav bar 컨트롤
   handlerNav = str => {
@@ -54,7 +40,7 @@ class ListDetail extends Component {
   };
 
   // 필터 btn 클릭하면 필터컴포 컨트롤
-  handlerFilter = () => {
+  handlerFilter = e => {
     this.setState({
       mode: !this.state.mode,
     });
@@ -68,7 +54,7 @@ class ListDetail extends Component {
   };
 
   render() {
-    const { mode, header_BG, nav, filter, product } = this.state;
+    const { mode, header_BG, nav } = this.state;
     return (
       <>
         <LDHeader
@@ -80,11 +66,11 @@ class ListDetail extends Component {
           header_BG={header_BG}
         />
         <Nav handlerOut={() => this.handlerNav('close')} nav={nav} />
-        <Filter mode={mode} filter={filter} />
-        <LDList product={product} />
+        {/* <Filter mode={mode} /> */}
+        <LDProduct />
       </>
     );
   }
 }
 
-export default ListDetail;
+export default ListDetailNew;

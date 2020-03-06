@@ -5,11 +5,6 @@ import logo from '../../Images/Black/logo.svg';
 import cart from '../../Images/Black/cart.svg';
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   render() {
     const { background, handlerOver, search_bar } = this.props;
     return (

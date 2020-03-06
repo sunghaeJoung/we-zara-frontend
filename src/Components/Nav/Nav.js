@@ -1,34 +1,48 @@
-import React, { Component } from "react";
-import "./Nav.scss";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import ListData from './List-data.js';
+import InfoData from './Info-Data.js';
+import './Nav.scss';
 
 class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
       bigList: false,
-      smallList: true
+      smallList: true,
+      infoList: false,
     };
   }
 
+  goToStore = () => {
+    this.props.history.push('/store');
+  };
+
   showBigList = () => {
     this.setState({
-      bigList: !this.state.bigList
+      bigList: !this.state.bigList,
     });
   };
 
   showSamllList = () => {
     this.setState({
-      smallList: !this.state.smallList
+      smallList: !this.state.smallList,
+    });
+  };
+
+  showInfoList = () => {
+    this.setState({
+      infoList: !this.state.infoList,
     });
   };
 
   render() {
+    const { bigList, smallList, infoList } = this.state;
+    const { nav, handlerOut } = this.props;
     return (
       <div
-        className={`nav-bar ${
-          this.props.nav === "open" ? "showNav" : "hideNav"
-        }`}
-        onMouseLeave={this.props.handlerOut}
+        className={`nav-bar ${nav === 'open' ? 'showNav' : 'hideNav'}`}
+        onMouseLeave={handlerOut}
         style={{ zIndex: 100 }}
       >
         <nav>
@@ -37,42 +51,27 @@ class Nav extends Component {
               <span className="list-name" onClick={this.showBigList}>
                 WOMAN
               </span>
-              <ul
-                className={`list-woman ${
-                  this.state.bigList ? "showList" : "hideList"
-                }`}
-              >
+              <ul className={`list-woman ${bigList ? 'showList' : 'hideList'}`}>
                 <li>
-                  <span>이번 주 신상품</span>
+                  <a href="/listDetail">이번 주 신상품</a>
                 </li>
                 <li></li>
                 <li className="collection">
                   <span
-                    className={this.state.smallList ? "txtBold" : ""}
+                    className={smallList ? 'txtBold' : ''}
                     onClick={this.showSamllList}
                   >
                     COLLECTION
                   </span>
                   <ul
                     className={`list-collection ${
-                      this.state.smallList ? "showList" : "hideList"
+                      smallList ? 'showList' : 'hideList'
                     }`}
                   >
                     <li className="bestseller">베스트셀러</li>
-                    <li>아우터</li>
-                    <li>자켓 | 패딩</li>
-                    <li>블레이저</li>
-                    <li>원피스 | 점프수트</li>
-                    <li>셔츠 | 탑</li>
-                    <li>티셔츠</li>
-                    <li>니트</li>
-                    <li>팬츠</li>
-                    <li>진</li>
-                    <li>스커트 | 쇼츠</li>
-                    <li>맨투맨</li>
-                    <li>슈즈</li>
-                    <li>백</li>
-                    <li>악세사리</li>
+                    {ListData.map((list, idx) => {
+                      return <li key={idx}>{list}</li>;
+                    })}
                   </ul>
                 </li>
               </ul>
@@ -90,7 +89,20 @@ class Nav extends Component {
             <li className="join-life">
               <span className="list-name">JOIN LIFE</span>
             </li>
-            <li className="info">+안내</li>
+            <li className="info" onClick={this.showInfoList}>
+              +안내
+              <div
+                className={`info-list ${infoList ? 'showList' : 'hideList'}`}
+              >
+                {InfoData.map((list, idx) => {
+                  return (
+                    <div key={idx} onClick={this.goToStore}>
+                      {list}
+                    </div>
+                  );
+                })}
+              </div>
+            </li>
           </ul>
         </nav>
       </div>
@@ -98,4 +110,4 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);

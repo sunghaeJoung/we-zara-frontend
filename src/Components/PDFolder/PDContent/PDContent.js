@@ -27,13 +27,9 @@ class PDContent extends Component {
 
           <div className="product-detail__info-container">
             <div className="info">
-              <h1>레더 오버셔츠</h1>
-              <p>259,000 원</p>
-              <p style={{ marginTop: 22, marginBottom: 5 }}>172 - 0190/021</p>
-              <p>
-                라펠 칼라 긴소매 오버셔츠. 양 옆면 포켓과 앞면 플랩 패치 포켓.
-                앞면 버튼 여밈.
-              </p>
+              <h1 style={{ marginBottom: 5 }}>{this.props.title}</h1>
+              <p style={{ marginBottom: 5 }}>{this.props.price} 원</p>
+              <p>{this.props.description}</p>
               <p
                 style={{
                   background:
@@ -89,15 +85,20 @@ class PDContent extends Component {
                           <span> L (KR 77)</span>
                         </label>
                       </div>
-                      <div style={{ marginTop: 15 }} className="modal-btn">
+                      <div
+                        style={{ marginTop: 15, cursor: 'pointer' }}
+                        className="modal-btn"
+                        onClick={() =>
+                          this.setState({
+                            isModal5: false,
+                          })
+                        }
+                      >
                         계속
                       </div>
                     </div>
                     <div>
-                      <img
-                        src="https://static.zara.net/photos///2020/V/0/1/p/0190/021/172/72/w/1412/0190021172_1_1_1.jpg?ts=1582542145957"
-                        alt=""
-                      />
+                      <img src={this.props.data[1]} alt="" />
                     </div>
                   </div>
                 }
@@ -184,15 +185,20 @@ class PDContent extends Component {
                             <span> L (KR 77)</span>
                           </label>
                         </div>
-                        <div style={{ marginTop: 15 }} className="modal-btn">
+                        <div
+                          style={{ marginTop: 15 }}
+                          className="modal-btn"
+                          onClick={() =>
+                            this.setState({
+                              isModal2: false,
+                            })
+                          }
+                        >
                           계속
                         </div>
                       </div>
                       <div>
-                        <img
-                          src="https://static.zara.net/photos///2020/V/0/1/p/0190/021/172/72/w/1412/0190021172_1_1_1.jpg?ts=1582542145957"
-                          alt=""
-                        />
+                        <img src={this.props.data[1]} alt="" />
                       </div>
                     </div>
                   }
@@ -202,56 +208,6 @@ class PDContent extends Component {
                     })
                   }
                 />
-                <p
-                  className="info-p"
-                  onClick={() =>
-                    this.setState({
-                      isModal3: true,
-                    })
-                  }
-                >
-                  배송, 교환 및 반품
-                </p>
-                <Modal
-                  dialogStyle={{ maxWidth: '600px' }}
-                  title="배송, 교환 및 반품"
-                  isVisible={this.state.isModal3}
-                  onClose={() => {
-                    this.setState({
-                      isModal3: false,
-                    });
-                  }}
-                  content={
-                    <div>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptatibus
-                        <br />
-                        quo officiis doloribus nobis incidunt animi in, eos iste
-                        harum
-                        <br />
-                        recusandae quae deserunt aliquam! Quia ullam aperiam
-                        <br />
-                        repudiandae molestias quasi rem expedita, praesentium
-                        facilis est blanditiis cum distinctio iste vitae
-                        ratione, suscipit error dolores fuga
-                        <br />
-                        odit et non sit! Odio ex doloribus quidem ab, asperiores
-                        nostrum officia quo voluptates recusandae blanditiis cum
-                        saepe eum dolorum ut porro fugiat provident soluta
-                        incidunt consectetur libero placeat consequuntur!
-                        Recusandae deserunt pariatur ipsa facere at omnis
-                        suscipit? Adipisci voluptates officia facilis commodi
-                        iste, veniam possimus incidunt voluptatem, aspernatur
-                        est accusantium. Incidunt consequuntur unde modi!
-                        Dolorum vel, repellat alias aperiam fugit nisi totam
-                        vitae cupiditate ab tempora nemo similique assumenda
-                        architecto doloribus ipsam dignissimos suscipit non.
-                      </p>
-                    </div>
-                  }
-                />
-                <p className="info-p">공유하기</p>
               </div>
             </div>
           </div>
