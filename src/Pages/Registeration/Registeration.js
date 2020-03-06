@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import './SignUp.scss';
+import './Registeration.scss';
 import logo from '../../Images/Black/logo.svg';
 import menuIcon from '../../Images/Black/menu-icon.svg';
-import DaumPostcode from './react-daum-postcode';
-import { createGlobalStyle } from './styled-components';
+import DaumPostcode from 'react-daum-postcode';
+import { createGlobalStyle } from 'styled-components';
+import Header from '../../Components/Header/Header.js';
+import Nav from '../../Components/Nav/Nav.js';
 
 class SignUp extends Component {
   constructor(props) {
@@ -264,17 +266,8 @@ class SignUp extends Component {
     return (
       <div className="SignUp">
         <nav>
-          <div className="top">
-            <div className="topleft">
-              <div className="threeline">
-                <img src={menuIcon} alt="삼 줄" />
-              </div>
-              <div className="ZARA">
-                <img src={logo} alt="자라 로고" />
-              </div>
-            </div>
-            <div className="topRight">도움말</div>
-          </div>
+          <Header handlerOver={this.handlerOver} />
+          <Nav handlerOut={this.handlerOut} nav={this.state.nav} />
           <main>
             <div className="feed">
               <div className="feed1">
@@ -473,93 +466,7 @@ class SignUp extends Component {
               </div>
             </div>
           </main>
-          <article>
-            <ul className="ul-list">
-              <li>
-                <ul className="help">
-                  <li className="li-title">도움말</li>
-                  <li className="list">
-                    <a href="http://localhost:3000/">ZARA.COM에서 구매하기</a>
-                  </li>
-                  <li className="list">
-                    <a href="http://localhost:3000/">제품</a>
-                  </li>
-                  <li className="list">
-                    <a href="http://localhost:3000/">배송</a>
-                  </li>
-                  <li className="list">
-                    <a href="http://localhost:3000/">교환 및 환불</a>
-                  </li>
-                  <li className="list">
-                    <a href="http://localhost:3000/">매장 및 기업</a>
-                  </li>
-                  <li className="list">
-                    <a href="http://localhost:3000/">내 계정</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <ul className="follow">
-                  <li className="li-title">FOLLOW하기</li>
-                  <li className="list">
-                    <a href="http://localhost:3000/">FOLLOW하기</a>
-                  </li>
-                  <li className="list">
-                    <a href="http://localhost:3000/">뉴스레터</a>
-                  </li>
-                  <li className="list">
-                    <a href="http://localhost:3000/">TWITTER</a>
-                  </li>
-                  <li className="list">
-                    <a href="http://localhost:3000/">YOUTUBE</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <ul className="company">
-                  <li className="li-title">회사</li>
-                  <li className="list">
-                    <a href="http://localhost:3000/">회사소개</a>
-                  </li>
-                  <li className="list">
-                    <a href="http://localhost:3000/">사무소</a>
-                  </li>
-                  <li className="list">
-                    <a href="http://localhost:3000/">매장</a>
-                  </li>
-                  <li className="list">
-                    <a href="http://localhost:3000/">자리에서 일하세요</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <ul className="policy">
-                  <li className="li-title">정책</li>
-                  <li className="list">
-                    <a href="http://localhost:3000/">개인정보보호정책</a>
-                  </li>
-                  <li className="list">
-                    <a href="http://localhost:3000/">이용약관</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <div className="blank"></div>
-            <div className="korea">
-              <span>SOUTH KOREA / 대한민국</span>
-              <span>한국어 | ENGLISH</span>
-            </div>
-            <div className="rights">© All rights reserved</div>
-          </article>
         </nav>
-        <footer>
-          아이티엑스코리아 유한회사 ｜ 사업자등록번호: 120-88-14733 ｜ 대표자 :
-          ROMAY DE LA COLINA JOSE MANUEL ｜ 서울시 강남구 영동대로 511 (삼성동,
-          트레이드타워 33층) ｜ 대표번호: 080-479-0880 | 이메일:
-          contact.kr@zara.com ｜ 호스팅 서비스 사업자: ITX Merken, B.V. ｜
-          통신판매업신고 : 제2014-서울강남-02297 (사업자정보확인) ｜
-          개인정보취급방침 | 이용약관
-        </footer>
       </div>
     );
   }

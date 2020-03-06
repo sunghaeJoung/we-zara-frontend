@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import "./Modal.scss";
+import React, { Component } from 'react';
+import './Modal.scss';
 
 class Modal extends Component {
   componentDidMount = () => {
-    document.addEventListener("keydown", this.keydownHandler);
-    return () => document.removeEventListener("keydown", this.keydownHandler);
+    document.addEventListener('keydown', this.keydownHandler);
+    return () => document.removeEventListener('keydown', this.keydownHandler);
   };
 
   keydownHandler = ({ key }) => {
     switch (key) {
-      case "Escape":
+      case 'Escape':
         this.props.onClose();
         break;
       default:

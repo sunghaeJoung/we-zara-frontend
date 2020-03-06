@@ -17,6 +17,23 @@ class ListDetail extends Component {
     };
   }
 
+  //스크롤로 필터컴포 컨트롤
+  componentDidMount = () => {
+    window.addEventListener('scroll', this.handlerScroll, true);
+  };
+
+  componentWillUnmount = () => {
+    window.addEventListener('scroll', this.handlerScroll, false);
+  };
+
+  handlerScroll = () => {
+    if (this.state.mode === false) {
+      this.setState({
+        mode: true,
+      });
+    }
+  };
+
   componentDidMount = () => {
     const queryId = this.props.location.search.split('=')[1];
     // console.log('queryId ', queryId);

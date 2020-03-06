@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
+
 import List from '../../../Components/LDProduct/List/List.js';
 import ListTwo from '../../../Components/LDProduct/List/ListTwo.js';
 import '../ListDetail.scss';
 import './LDList.scss';
 
 class LDList extends Component {
-  //   }
-
   render() {
     const { product } = this.props;
     return (

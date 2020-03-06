@@ -1,4 +1,7 @@
 .Login {
+  height: 100vh;
+  overflow: hidden;
+  padding-top: 100px;
   .top {
     display: flex;
     justify-content: space-between;
@@ -23,7 +26,8 @@
   }
   body {
     .feed {
-      padding: 60px 32px 0 368px;
+      margin-right: -150px;
+      padding: 60px 32px 0 18%;
       display: flex;
     }
     .feed1 {

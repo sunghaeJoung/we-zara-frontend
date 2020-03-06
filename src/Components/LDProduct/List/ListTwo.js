@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './List.scss';
 
 class ListTwo extends Component {
+  goToProductDetail = () => {
+    this.props.history.push('/product-detail');
+  };
+
   render() {
     const { id, img, name, price } = this.props;
     return (
-      <div className="list-detail-product width">
+      <div
+        className="list-detail-product width"
+        onClick={() => this.goToProductDetail()}
+      >
         <ul className="list-detail-product-ul">
           <li className="product-width" key={id}>
             <div className="product-image">
@@ -23,4 +31,4 @@ class ListTwo extends Component {
   }
 }
 
-export default ListTwo;
+export default withRouter(ListTwo);
