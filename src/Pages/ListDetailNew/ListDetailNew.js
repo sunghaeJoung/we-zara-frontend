@@ -12,6 +12,9 @@ class ListDetailNew extends Component {
       nav: 'close',
       mode: true,
       header_BG: true,
+      marketing: [],
+      product: [],
+      filter: [],
     };
   }
 
@@ -31,6 +34,18 @@ class ListDetailNew extends Component {
   //     });
   //   }
   // };
+
+  componentDidMount = () => {
+    fetch('http://10.58.2.227:8000/clothes/new/1')
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          marketing: res.marketing,
+          product: res.new,
+          filter: res.filter_list,
+        });
+      });
+  };
 
   // nav bar 컨트롤
   handlerNav = str => {
@@ -54,7 +69,7 @@ class ListDetailNew extends Component {
   };
 
   render() {
-    const { mode, header_BG, nav } = this.state;
+    const { mode, header_BG, nav, marketing, product, filter } = this.state;
     return (
       <>
         <LDHeader
@@ -66,8 +81,8 @@ class ListDetailNew extends Component {
           header_BG={header_BG}
         />
         <Nav handlerOut={() => this.handlerNav('close')} nav={nav} />
-        {/* <Filter mode={mode} /> */}
-        <LDProduct />
+        <Filter mode={mode} filter={filter} />
+        <LDProduct marketing={marketing} product={product} />
       </>
     );
   }

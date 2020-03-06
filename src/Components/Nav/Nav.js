@@ -14,6 +14,14 @@ class Nav extends Component {
     };
   }
 
+  goToListDetailNew = () => {
+    this.props.history.push(`/list-new?id=1`);
+  };
+
+  goToListDetail = id => {
+    this.props.history.push(`/list?id=${id}`);
+  };
+
   goToStore = () => {
     this.props.history.push('/store');
   };
@@ -53,7 +61,7 @@ class Nav extends Component {
               </span>
               <ul className={`list-woman ${bigList ? 'showList' : 'hideList'}`}>
                 <li>
-                  <a href="/listDetail">이번 주 신상품</a>
+                  <div onClick={this.goToListDetailNew}>이번 주 신상품</div>
                 </li>
                 <li></li>
                 <li className="collection">
@@ -69,8 +77,16 @@ class Nav extends Component {
                     }`}
                   >
                     <li className="bestseller">베스트셀러</li>
-                    {ListData.map((list, idx) => {
-                      return <li key={idx}>{list}</li>;
+                    {ListData.map(list => {
+                      return (
+                        <li
+                          key={list.id}
+                          id={list.id}
+                          onClick={() => this.goToListDetail(list.id)}
+                        >
+                          {list.title}
+                        </li>
+                      );
                     })}
                   </ul>
                 </li>

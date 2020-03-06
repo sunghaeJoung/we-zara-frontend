@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './SignUp.scss';
 import logo from '../../Images/Black/logo.svg';
 import menuIcon from '../../Images/Black/menu-icon.svg';
-import DaumPostcode from 'react-daum-postcode';
-import { createGlobalStyle } from 'styled-components';
+import DaumPostcode from './react-daum-postcode';
+import { createGlobalStyle } from './styled-components';
 
 class SignUp extends Component {
   constructor(props) {
