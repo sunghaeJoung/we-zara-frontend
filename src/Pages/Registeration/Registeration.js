@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import './Registeration.scss';
-import logo from '../../Images/Black/logo.svg';
-import menuIcon from '../../Images/Black/menu-icon.svg';
 import DaumPostcode from 'react-daum-postcode';
-import { createGlobalStyle } from 'styled-components';
 import Header from '../../Components/Header/Header.js';
 import Nav from '../../Components/Nav/Nav.js';
 
@@ -129,7 +126,7 @@ class SignUp extends Component {
 
   handleLoginButton = () => {
     if (this.state.password === this.state.rePassword) {
-      fetch('http://10.58.2.227:8000/account/sign-up', {
+      fetch('http://13.125.199.45:8000/account/sign-up', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

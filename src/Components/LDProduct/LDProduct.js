@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './LDProduct.scss';
 import Marketing from './Marketing/Marketing.js';
-import List from './List/List.js';
 import ListTwo from './List/ListTwo.js';
 
 class LDProduct extends Component {
@@ -45,17 +44,8 @@ class LDProduct extends Component {
             ></img>
           </li>
 
-          {product.map(list => {
-            if (list.id % 3 === 1) {
-              return (
-                <List
-                  id={list.id}
-                  img={list.image}
-                  name={list.name}
-                  price={list.price}
-                />
-              );
-            } else {
+          {product.map(
+            list => {
               return (
                 <ListTwo
                   id={list.id}
@@ -64,8 +54,9 @@ class LDProduct extends Component {
                   price={list.price}
                 />
               );
-            }
-          })}
+            },
+            // }
+          )}
         </ul>
       </div>
     );

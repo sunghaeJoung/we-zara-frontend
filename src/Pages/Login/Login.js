@@ -54,7 +54,7 @@ class Login extends Component {
   // : 'inputTip1'
 
   handleLoginButton = () => {
-    fetch('http://10.58.2.227:8000/account/sign-in', {
+    fetch('http://13.125.199.45:8000/account/sign-in', {
       method: 'POST',
       body: JSON.stringify({
         email: this.state.email,

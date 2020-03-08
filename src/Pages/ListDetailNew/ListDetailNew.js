@@ -36,7 +36,7 @@ class ListDetailNew extends Component {
   // };
 
   componentDidMount = () => {
-    fetch('http://10.58.2.227:8000/clothes/new/1')
+    fetch('http://13.125.199.45:8000/clothes/new/1')
       .then(res => res.json())
       .then(res => {
         this.setState({

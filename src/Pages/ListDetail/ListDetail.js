@@ -38,7 +38,7 @@ class ListDetail extends Component {
     const queryId = this.props.location.search.split('=')[1];
     // console.log('queryId ', queryId);
 
-    fetch(`http://10.58.2.227:8000/clothes/1/${queryId}`)
+    fetch(`http://13.125.199.45:8000/clothes/1/${queryId}`)
       .then(res => res.json())
       .then(res => {
         this.setState({

@@ -26,7 +26,7 @@ class Search extends Component {
         },
         () => {
           fetch(
-            `http://10.58.2.227:8000/clothes/search?keyword=${this.state.keyword}`,
+            `http://13.125.199.45:8000/clothes/search?keyword=${this.state.keyword}`,
           )
             .then(res => res.json())
             .then(res => {

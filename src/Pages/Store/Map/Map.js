@@ -2,15 +2,8 @@ import React, { Component } from 'react';
 import './Map.scss';
 
 class Map extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      stores: [],
-    };
-  }
-
-  componentDidUpdate(prevState, nextState) {
-    if (prevState !== nextState) {
+  componentDidUpdate(prevProps, nextSrops) {
+    if (prevProps !== nextSrops) {
       this.props.stores.length !== 0 && this.makeMap();
     }
   }
