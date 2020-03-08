@@ -31,10 +31,10 @@ Deployment : **AWS**
 - 메인페이지 슬라이더 기능 구현
 - 검색어에 맞는 제품 검색 기능 구현
 - 카카오맵 API를 통해 지역별 매장 위치 검색
-- React Router의 동적라우팅 방식을 사용하여 목록상세 페이지 집입
+- React Router의 동적라우팅 방식을 사용하여 목록상세 페이지 진입
 
 ---
 
 ### 데모영상
 
-[<img src="https://images.velog.io/images/ppl8709/post/37ffcff1-3c63-4f56-9c1f-644d2e7bfac9/image.png">](https://www.youtube.com/watch?v=T3Denvrn120&feature=youtu.be)
+[![readme.png](./src/Images/readme.png)](https://www.youtube.com/watch?v=T3Denvrn120&feature=youtu.be)
